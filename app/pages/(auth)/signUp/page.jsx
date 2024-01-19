@@ -6,6 +6,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
+import Link from "next/link";
+import Checkbox from "@/components/ui/input/customCheckbox";
+import Logo from "@/asets/GritoLogo.svg";
+import Image from "next/image";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,8 +22,10 @@ const SignUp = () => {
   } = useForm({
     defaultValues: {
       fname: "",
+      username: "",
       email: "",
       password: "",
+      confirmpassword: "",
     },
   });
 
@@ -31,13 +37,15 @@ const SignUp = () => {
   };
 
   return (
-    <div className="w-screen min-h-screen   ">
+    <div className="w-screen min-h-screen px-6   ">
       <ToastContainer />
-      <main className="flex flex-col md:flex-row">
+
+      <main className="flex flex-col md:flex-row gap-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="min-h-[300px] w-full lg:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "
         >
+          <h1>Register With Email</h1>
           <div className="mb-2  w-[100%]">
             <Controller
               control={control}
@@ -50,11 +58,12 @@ const SignUp = () => {
               name="fname"
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
+                  placeholder={"Full Name"}
                   size="sm"
                   fullWidth={true}
                   value={value}
                   type="text"
-                  LabelText="Name"
+                  LabelText="Full Name"
                   isPassword={false}
                   variant="outlined"
                   onBlur={onBlur}
@@ -65,6 +74,68 @@ const SignUp = () => {
             <p style={{ color: "red" }}>
               {errors.fname && errors.fname.message}
             </p>
+          </div>
+          <div className="mb-2  w-[100%]">
+            <Controller
+              control={control}
+              rules={{
+                required: {
+                  value: true,
+                  message: "Username is required",
+                },
+              }}
+              name="username"
+              render={({ field: { onChange, onBlur, value }, formState }) => (
+                <CustomInput
+                  placeholder={"Username"}
+                  size="sm"
+                  fullWidth={true}
+                  value={value}
+                  type="text"
+                  LabelText="Usename"
+                  isPassword={false}
+                  variant="outlined"
+                  onBlur={onBlur}
+                  onChange={onChange}
+                />
+              )}
+            />
+            <p style={{ color: "red" }}>
+              {errors.username && errors.username.message}
+            </p>
+          </div>
+          <div className="mb-2 w-[100%]">
+            <Controller
+              control={control}
+              name="email"
+              rules={{
+                required: {
+                  value: true,
+                  message: "email is required",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                  message: "Invalid email address",
+                },
+              }}
+              render={({ field: { onChange, onBlur, value }, formState }) => (
+                <CustomInput
+                  placeholder={"Email"}
+                  size="sm"
+                  fullWidth
+                  LabelText="Email"
+                  isPassword={false}
+                  value={value}
+                  type="email"
+                  variant="outlined"
+                  onBlur={onBlur}
+                  onChange={onChange}
+                />
+              )}
+            />
+            {errors.email && (
+              <p style={{ color: "red" }}>{errors.email.message}</p>
+            )}
           </div>
           <div className="mb-2 w-[100%]">
             <Controller
@@ -87,6 +158,7 @@ const SignUp = () => {
               name="password"
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
+                  placeholder={"Password"}
                   size="sm"
                   fullWidth
                   LabelText="Password"
@@ -108,36 +180,43 @@ const SignUp = () => {
           <div className="mb-2 w-[100%]">
             <Controller
               control={control}
-              name="email"
               rules={{
                 required: {
                   value: true,
-                  message: "email is required",
+                  message: "Password is required",
+                },
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters",
                 },
                 pattern: {
-                  value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                  message: "Invalid email address",
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
+                  message: "Password must meet complexity requirements",
                 },
               }}
+              name="confirmpassword"
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
+                  placeholder={"Confirm Password"}
                   size="sm"
                   fullWidth
-                  LabelText="Email"
-                  isPassword={false}
+                  LabelText="Confirm Password"
+                  isPassword
+                  onClick={() => setShowPassword(!showPassword)}
+                  showPassword={showPassword}
                   value={value}
-                  type="email"
+                  type={showPassword ? "text" : "password"}
                   variant="outlined"
                   onBlur={onBlur}
                   onChange={onChange}
                 />
               )}
             />
-            {errors.email && (
-              <p style={{ color: "red" }}>{errors.email.message}</p>
-            )}
+            <p style={{ color: "red" }}>
+              {errors.confirmpassword && errors.confirmpassword.message}
+            </p>
           </div>
-
           <Button
             size="md"
             variant="primary"
@@ -147,8 +226,55 @@ const SignUp = () => {
             fullWidth={true}
             loading={false}
           />
+          <small>
+            Already have an account?{" "}
+            <Link href={"/pages/login"} className="text-primary font-bold">
+              Log in
+            </Link>
+          </small>
+          <div className="mb-2 w-[100%]">
+            <Checkbox
+              name="terms"
+              value="terms"
+              label={
+                "i'd like to receive personalized offers and be the first to receive the latest information about grito"
+              }
+            />
+          </div>{" "}
+          <div className="mb-2 w-[100%]">
+            <Checkbox
+              name="terms"
+              value="terms"
+              label={
+                <>
+                  By registering, I confirm that I agree to Grito's
+                  <a
+                    href="/terms-and-conditions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold px-1"
+                  >
+                    terms and services
+                  </a>
+                  and that I have read the
+                  <a
+                    href="/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold px-1"
+                  >
+                    privacy policy
+                  </a>
+                  and I am 18 years and above.
+                </>
+              }
+            />
+          </div>
         </form>
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 border-black"></div>
+
+        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+          <Image src={Logo} height={350} width={350} alt="logo" />
+        </div>
       </main>
     </div>
   );

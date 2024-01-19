@@ -47,6 +47,7 @@ export const CustomInput = ({
   onClick,
   type,
   onChange,
+  placeholder,
   value,
   ...props
 }) => {
@@ -67,6 +68,7 @@ export const CustomInput = ({
           onBlur={onBlur}
           onChange={onChange}
           value={value}
+          placeholder={placeholder}
           className={cn(
             InputVariants({
               className,

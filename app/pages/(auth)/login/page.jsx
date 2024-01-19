@@ -26,9 +26,9 @@ const Login = () => {
     }, 2000);
   };
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen px-6">
       <ToastContainer />
-      <main className="flex flex-col md:flex-row">
+      <main className="flex flex-col md:flex-row gap-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="min-h-full w-full md:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "

@@ -7,7 +7,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-400",
+        primary:
+          "bg-primary hover:bg-transparent hover:border-[2px] hover:text-black hover:border-[#CBB26A]",
         danger: "bg-red-500",
         lemony: "bg-lemon-200 text-white",
         alert: "bg-yellow-500",
@@ -15,7 +16,7 @@ const buttonVariants = cva(
       size: {
         sm: "py-2 px-2",
         md: "px-4 py-2",
-        lg: "py-3 px-6",
+        lg: "py-3 px-6 rounded-xl shadow-xl",
       },
       fullWidth: {
         true: "w-full",
@@ -42,8 +43,6 @@ const buttonVariants = cva(
     },
   }
 );
-
-
 
 const Button = ({
   size,

@@ -27,9 +27,9 @@ const EmailVerificationPage = () => {
     }, 2000);
   };
   return (
-    <section className="w-screen h-screen">
+    <section className="w-screen h-screen px-6 ">
       <ToastContainer />
-      <main className="flex flex-col md:flex-row items-center">
+      <main className="flex flex-col md:flex-row items-center gap-5">
         <form
           action=""
           onSubmit={handleSubmit(onSubmit)}
@@ -53,6 +53,7 @@ const EmailVerificationPage = () => {
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
                   size="sm"
+                  placeholder={"enter otp"}
                   fullWidth
                   LabelText="Email"
                   isPassword={false}
@@ -67,10 +68,10 @@ const EmailVerificationPage = () => {
             {errors.email && <p>{errors.email.message}</p>}
           </div>
           <Button
-            size="md"
+            size="lg"
             variant="primary"
             loadingText="loading"
-            text="register"
+            text="verify email"
             disabled={false}
             fullWidth={true}
             loading={false}
