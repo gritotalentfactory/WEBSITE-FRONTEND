@@ -20,6 +20,7 @@ module.exports = {
       },
       borderRadius: {
         xl: "20px",
+        large: "10px",
       },
       boxShadow: {
         xl: "0px 10px 15px 0px rgba(203, 178, 106, 0.30)",

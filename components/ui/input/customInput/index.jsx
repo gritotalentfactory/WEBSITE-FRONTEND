@@ -7,7 +7,7 @@ const InputVariants = cva(
   {
     variants: {
       variant: {
-        outlined: "border-gray-300 border-4 text-black",
+        outlined: "border-gray-300 border-[2px] rounded-large text-black",
       },
       size: {
         sm: "py-2 px-2",
