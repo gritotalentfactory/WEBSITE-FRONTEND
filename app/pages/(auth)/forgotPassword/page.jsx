@@ -12,6 +12,7 @@ import Link from "next/link";
 const Login = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
   const {
     handleSubmit,
     control,
@@ -102,10 +103,10 @@ const Login = () => {
                   fullWidth
                   LabelText="Confirm Password"
                   isPassword
-                  onClick={() => setShowPassword(!showPassword)}
-                  showPassword={showPassword}
+                  onClick={() => setConfirmPassword(!confirmPassword)}
+                  showPassword={confirmPassword}
                   value={value}
-                  type={showPassword ? "text" : "password"}
+                  type={confirmPassword ? "text" : "password"}
                   variant="outlined"
                   onBlur={onBlur}
                   onChange={onChange}

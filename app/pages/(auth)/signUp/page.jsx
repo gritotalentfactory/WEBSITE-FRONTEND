@@ -11,9 +11,9 @@ import Link from "next/link";
 import Checkbox from "@/components/ui/input/customCheckbox";
 import Logo from "@/asets/GritoLogo.svg";
 
-
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
   const router = useRouter();
   const queryClient = useQueryClient();
   const {
@@ -204,10 +204,10 @@ const SignUp = () => {
                   fullWidth
                   LabelText="Confirm Password"
                   isPassword
-                  onClick={() => setShowPassword(!showPassword)}
-                  showPassword={showPassword}
+                  onClick={() => setConfirmPassword(!confirmPassword)}
+                  showPassword={confirmPassword}
                   value={value}
-                  type={showPassword ? "text" : "password"}
+                  type={confirmPassword ? "text" : "password"}
                   variant="outlined"
                   onBlur={onBlur}
                   onChange={onChange}
@@ -233,44 +233,6 @@ const SignUp = () => {
               Log in
             </Link>
           </small>
-          <div className="mb-2 w-[100%]">
-            <Checkbox
-              name="terms"
-              value="terms"
-              label={
-                "i'd like to receive personalized offers and be the first to receive the latest information about grito"
-              }
-            />
-          </div>{" "}
-          <div className="mb-2 w-[100%]">
-            <Checkbox
-              name="terms"
-              value="terms"
-              label={
-                <>
-                  By registering, I confirm that I agree to Grito's
-                  <a
-                    href="/terms-and-conditions"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold px-1"
-                  >
-                    terms and services
-                  </a>
-                  and that I have read the
-                  <a
-                    href="/privacy-policy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold px-1"
-                  >
-                    privacy policy
-                  </a>
-                  and I am 18 years and above.
-                </>
-              }
-            />
-          </div>
           <Link href={""} className="text-center pt-12">
             Having Trouble?
           </Link>

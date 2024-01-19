@@ -44,6 +44,7 @@ export const CustomInput = ({
   variant,
   onBlur,
   showPassword,
+  confirmPassword,
   onClick,
   type,
   onChange,
@@ -60,7 +61,11 @@ export const CustomInput = ({
             className="absolute right-2 top-2 cursor-pointer"
             onClick={onClick}
           >
-            {showPassword ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+            {showPassword || confirmPassword ? (
+              <EyeInvisibleOutlined />
+            ) : (
+              <EyeOutlined />
+            )}
           </div>
         )}
         <input
