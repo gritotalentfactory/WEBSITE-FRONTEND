@@ -1,11 +1,11 @@
 "use client";
-import { useEffect } from "react";
+import Image from "next/image";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
-
+import Logo from "@/asets/GritoLogo.svg";
 const EmailVerificationPage = () => {
   const router = useRouter();
 
@@ -33,10 +33,10 @@ const EmailVerificationPage = () => {
         <form
           action=""
           onSubmit={handleSubmit(onSubmit)}
-          className="min-h-[300px] w-full lg:w-[48%]"
+          className="min-h-[300px] w-full lg:w-[48%] "
         >
-          <h1>VERIFY EMAIL ADDRESS</h1>
-          <div className="my-3">
+          <h1 className="text-center">VERIFY EMAIL ADDRESS</h1>
+          <div className="my-3 md:mb-16">
             <Controller
               control={control}
               name="email"
@@ -77,7 +77,9 @@ const EmailVerificationPage = () => {
             loading={false}
           />
         </form>
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 border-black"></div>
+        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+          <Image src={Logo} height={350} width={350} alt="logo" />
+        </div>
       </main>
     </section>
   );

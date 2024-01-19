@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
+import Logo from "@/asets/GritoLogo.svg";
+import Link from "next/link";
 
 const Login = () => {
   const router = useRouter();
@@ -49,6 +52,7 @@ const Login = () => {
               }}
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
+                  placeholder={"Enter Your Email"}
                   size="sm"
                   fullWidth
                   LabelText="Email"
@@ -63,7 +67,7 @@ const Login = () => {
             />
             {errors.email && <p>{errors?.email?.message}</p>}
           </div>
-          <div className="mb-3 w-[100%]">
+          <div className="mb-8 w-[100%]">
             <Controller
               control={control}
               rules={{
@@ -84,6 +88,7 @@ const Login = () => {
               name="password"
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
+                  placeholder={"Enter Your pssword"}
                   size="sm"
                   fullWidth
                   LabelText="Password"
@@ -110,8 +115,13 @@ const Login = () => {
             fullWidth={true}
             loading={false}
           />
+          <Link href="/pages/forgotPassword" className="flex ml-auto">
+            Forgot Your Password?
+          </Link>
         </form>
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 border-black"></div>
+        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+          <Image src={Logo} height={350} width={350} alt="logo" />
+        </div>
       </main>
     </div>
   );

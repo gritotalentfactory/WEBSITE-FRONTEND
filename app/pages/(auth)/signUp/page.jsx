@@ -4,12 +4,13 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Link from "next/link";
 import Checkbox from "@/components/ui/input/customCheckbox";
 import Logo from "@/asets/GritoLogo.svg";
-import Image from "next/image";
+
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
