@@ -15,6 +15,9 @@ const AuthMessage = () => {
             click to login
           </Link>
         </p>
+        <Link href={""} className="text-center pt-12">
+          Having Trouble?
+        </Link>
       </div>
       <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
         <Image src={Logo} height={350} width={350} alt="logo" />

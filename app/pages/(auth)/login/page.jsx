@@ -118,6 +118,9 @@ const Login = () => {
           <Link href="/pages/forgotPassword" className="flex ml-auto">
             Forgot Your Password?
           </Link>
+          <Link href={""} className="text-center pt-12">
+            Having Trouble?
+          </Link>
         </form>
         <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />

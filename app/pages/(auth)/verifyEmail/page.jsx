@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
+import Link from "next/link";
 const EmailVerificationPage = () => {
   const router = useRouter();
 
@@ -76,6 +77,7 @@ const EmailVerificationPage = () => {
             fullWidth={true}
             loading={false}
           />
+          <Link href={""} className="text-center pt-12">Having Trouble?</Link>
         </form>
         <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />

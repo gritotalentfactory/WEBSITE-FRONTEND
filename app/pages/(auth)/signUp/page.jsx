@@ -271,6 +271,9 @@ const SignUp = () => {
               }
             />
           </div>
+          <Link href={""} className="text-center pt-12">
+            Having Trouble?
+          </Link>
         </form>
 
         <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">

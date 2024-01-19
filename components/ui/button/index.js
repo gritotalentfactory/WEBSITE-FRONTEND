@@ -9,12 +9,11 @@ const buttonVariants = cva(
       variant: {
         primary:
           "bg-primary hover:bg-transparent hover:border-[2px] hover:text-black hover:border-[#CBB26A]",
-        danger: "bg-red-500",
-        lemony: "bg-lemon-200 text-white",
-        alert: "bg-yellow-500",
+        outline:
+          "border-none hover:border-[2px] hover:text-black hover:border-[#CBB26A]",
       },
       size: {
-        sm: "py-2 px-2",
+        sm: " px-2 rounded-xl",
         md: "px-4 py-2",
         lg: "py-3 px-6 rounded-xl shadow-xl",
       },
@@ -28,13 +27,13 @@ const buttonVariants = cva(
         true: "bg-lemon-100",
       },
     },
-    compoundVariants: [
-      {
-        variant: "primary",
-        size: "sm",
-        className: "uppercase rounded-md",
-      },
-    ],
+    // compoundVariants: [
+    //   {
+    //     variant: "primary",
+    //     size: "sm",
+    //     className: "uppercase rounded-md",
+    //   },
+    // ],
     defaultVariants: {
       size: "sm",
       variant: "primary",
