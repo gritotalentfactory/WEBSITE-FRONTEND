@@ -13,13 +13,14 @@ export const loginUserFn = async (user) => {
   return response.data;
 };
 
-export const verifyEmailFn = async (otp_code) => {
-  const response = await authApi.get(`/auth/v1/confirm/otp/${otp_code}`);
+export const verifyEmailFn = async (user) => {
+  const response = await authApi.post("/auth/v1/confirm-otp/", user);
+
   return response.data;
 };
 
 export const logoutUserFn = async () => {
-  const response = await authApi.get("/auth/v1/logout/");
+  const response = await authApi.post("/auth/v1/logout/");
   return response.data;
 };
 

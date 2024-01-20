@@ -2,31 +2,47 @@
 import Image from "next/image";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
-import Link from "next/link";
+import { useVerifyEmail } from "@/services/auth/authApi";
+import "react-toastify/dist/ReactToastify.css";
 const EmailVerificationPage = () => {
   const router = useRouter();
 
   const {
-    reset,
     handleSubmit,
     control,
     formState: { errors, isSubmitSuccessful },
   } = useForm({
     defaultValues: {
+      otp_code: "",
       email: "",
     },
   });
-
+  const useVerifyEmailMutation = useVerifyEmail();
   const onSubmit = async (values) => {
-    setTimeout(() => {
-      toast.success("successfully logged in");
-      router.push("/pages/login");
-    }, 2000);
+    try {
+      const response = await useVerifyEmailMutation.mutateAsync(values);
+      // Check if the mutation was successful
+      if (response) {
+        setTimeout(() => {
+          toast.success("email verified");
+          router.push("/pages/login");
+        }, 2000);
+      }
+    } catch (error) {
+      // Handle errors using the onError callback
+      const errorMessage =
+        error?.response?.data?.message || "An error occurred";
+      setTimeout(() => {
+        toast.error(errorMessage);
+      }, 2000);
+    }
   };
+
   return (
     <section className="w-screen h-screen px-6 ">
       <ToastContainer />
@@ -37,6 +53,42 @@ const EmailVerificationPage = () => {
           className="min-h-[300px] w-full lg:w-[48%] "
         >
           <h1 className="text-center">VERIFY EMAIL ADDRESS</h1>
+          <div className="my-3 md:mb-16">
+            <Controller
+              control={control}
+              name="otp_code"
+              rules={{
+                required: "This field is required",
+                pattern: {
+                  value: /^\d+$/,
+                  message: "Enter a valid number",
+                },
+                // min: {
+                //   value: 1,
+                //   message: "Number must be greater than or equal to 1",
+                // },
+                // max: {
+                //   value: 100,
+                //   message: "Number must be less than or equal to 100",
+                // },
+              }}
+              render={({ field: { onChange, onBlur, value }, formState }) => (
+                <CustomInput
+                  size="sm"
+                  placeholder={"Enter Your OTP"}
+                  fullWidth
+                  LabelText="OTP CODE"
+                  isPassword={false}
+                  value={value}
+                  type="number"
+                  variant="outlined"
+                  onBlur={onBlur} // notify when input is touched
+                  onChange={onChange} // send value to hook form
+                />
+              )}
+            />
+            {errors.otp_code && <p>{errors.otp_code.message}</p>}
+          </div>{" "}
           <div className="my-3 md:mb-16">
             <Controller
               control={control}
@@ -54,7 +106,7 @@ const EmailVerificationPage = () => {
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
                   size="sm"
-                  placeholder={"enter otp"}
+                  placeholder={"Enter Your Email"}
                   fullWidth
                   LabelText="Email"
                   isPassword={false}
@@ -77,9 +129,11 @@ const EmailVerificationPage = () => {
             fullWidth={true}
             loading={false}
           />
-          <Link href={""} className="text-center pt-12">Having Trouble?</Link>
+          <div className=" text-center pt-12 w-[100%]">
+            <Link href={""}>Having Trouble?</Link>
+          </div>
         </form>
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+        <div className="hidden bg-black min-h-screen w-full md:w-[48%] border-4 md:flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />
         </div>
       </main>

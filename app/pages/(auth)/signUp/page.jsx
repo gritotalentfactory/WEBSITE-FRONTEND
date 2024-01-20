@@ -241,11 +241,9 @@ const SignUp = () => {
           <Button
             size="md"
             variant="primary"
-            loadingText="loading"
             text={useSignUpMutation.isPending ? "loading...." : "Register"}
             disabled={false}
             fullWidth={true}
-            loading={false}
           />
           <small>
             Already have an account?{" "}
@@ -258,7 +256,7 @@ const SignUp = () => {
           </Link>
         </form>
 
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+        <div className="hidden md:bg-black min-h-screen w-full md:w-[48%] border-4 md:flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />
         </div>
       </main>

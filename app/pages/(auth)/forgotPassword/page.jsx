@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
+
 import Logo from "@/asets/GritoLogo.svg";
 
 

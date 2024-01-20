@@ -1,13 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
-import Link from "next/link";
+import { useLogin } from "@/services/auth/authApi";
 
 const Login = () => {
   const router = useRouter();
@@ -22,11 +24,25 @@ const Login = () => {
       password: "",
     },
   });
-  const onSubmit = (values) => {
-    setTimeout(() => {
-      toast.success("successfully logged in");
-      router.push("pages/dashboard");
-    }, 2000);
+  const useLoginMutation = useLogin();
+  const onSubmit = async (values) => {
+    try {
+      const response = await useLoginMutation.mutateAsync(values);
+      // Check if the mutation was successful
+      if (response) {
+        setTimeout(() => {
+          toast.success("login successfull");
+          router.push("/pages/dashboard");
+        }, 2000);
+      }
+    } catch (error) {
+      // Handle errors using the onError callback
+      const errorMessage =
+        error?.response?.data?.message || "An error occurred";
+      setTimeout(() => {
+        toast.error(errorMessage);
+      }, 2000);
+    }
   };
   return (
     <div className="w-screen h-screen px-6">

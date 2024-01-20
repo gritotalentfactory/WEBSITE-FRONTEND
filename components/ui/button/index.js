@@ -1,6 +1,5 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/utils/helper";
-import Loader from "@/components/loader";
 
 const buttonVariants = cva(
   `px-3 py-2 rounded-xl transition-all hover:ring-2 ring-indigo-300 hover:text-white`,
@@ -47,10 +46,8 @@ const Button = ({
   size,
   variant,
   className,
-  loadingText,
   text,
   disabled,
-  loading,
   fullWidth,
   ...props
 }) => {
@@ -63,21 +60,12 @@ const Button = ({
           variant,
           size,
           fullWidth,
-          loading,
           disabled,
         })
       )}
       {...props}
     >
-      <div>
-        {loading && (
-          <div className="flex items-center justify-center gap-3 align-middle">
-            <Loader />
-            {loadingText}
-          </div>
-        )}
-      </div>
-      {!loading && text && <div>{text}</div>}
+      {text}
     </button>
   );
 };
