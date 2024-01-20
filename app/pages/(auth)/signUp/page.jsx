@@ -2,20 +2,20 @@
 import { useEffect, useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
-import Link from "next/link";
-import Checkbox from "@/components/ui/input/customCheckbox";
 import Logo from "@/asets/GritoLogo.svg";
+import { useSignUp } from "@/services/auth/authApi";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
   const router = useRouter();
-  const queryClient = useQueryClient();
+
   const {
     control,
     handleSubmit,
@@ -29,22 +29,30 @@ const SignUp = () => {
       confirmpassword: "",
     },
   });
-
+  const useSignUpMutation = useSignUp();
   const onSubmit = async (values) => {
     if (values.password !== values.confirmpassword) {
       toast.error("Passwords do not match");
       return;
     }
-    setTimeout(() => {
-      toast.success("successfully logged in");
-      router.push("pages/authMessage");
-    }, 2000);
+    try {
+      const response = await useSignUpMutation.mutateAsync(values);
+      useSignUpMutation.isSuccess &&
+        setTimeout(() => {
+          toast.success("Signup successful!");
+          router.push("pages/authMessage");
+        }, 2000);
+    } catch (error) {
+      useSignUpMutation.isError &&
+        setTimeout(() => {
+          toast.error(useSignUpMutation.error.message);
+        }, 2000);
+    }
   };
 
   return (
     <div className="w-screen min-h-screen px-6   ">
       <ToastContainer />
-
       <main className="flex flex-col md:flex-row gap-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
