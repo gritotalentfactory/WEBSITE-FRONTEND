@@ -24,6 +24,10 @@ const Login = () => {
     },
   });
   const onSubmit = (values) => {
+    if (values.password !== values.confirmpassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
     setTimeout(() => {
       toast.success("successfully logged in");
       router.push("pages/dashboard");
@@ -37,6 +41,7 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="min-h-full w-full md:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "
         >
+          <h1>Reset Your Password</h1>
           <div className="mb-2 w-[100%]">
             <Controller
               control={control}

@@ -36,6 +36,7 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="min-h-full w-full md:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "
         >
+          <h1>Welcome Back!</h1>
           <div className="mb-3 w-[100%]">
             <Controller
               control={control}

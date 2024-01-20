@@ -31,6 +31,10 @@ const SignUp = () => {
   });
 
   const onSubmit = async (values) => {
+    if (values.password !== values.confirmpassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
     setTimeout(() => {
       toast.success("successfully logged in");
       router.push("pages/authMessage");
