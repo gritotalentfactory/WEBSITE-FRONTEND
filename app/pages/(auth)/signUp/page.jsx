@@ -22,7 +22,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      fname: "",
+      name: "",
       username: "",
       email: "",
       password: "",
@@ -35,18 +35,28 @@ const SignUp = () => {
       toast.error("Passwords do not match");
       return;
     }
+    // Exclude confirmpassword from the data sent to the backend
+    const { confirmpassword, ...dataWithoutConfirmPassword } = values;
+
     try {
-      const response = await useSignUpMutation.mutateAsync(values);
-      useSignUpMutation.isSuccess &&
+      const response = await useSignUpMutation.mutateAsync(
+        dataWithoutConfirmPassword
+      );
+
+      // Check if the mutation was successful
+      if (response) {
         setTimeout(() => {
           toast.success("Signup successful!");
           router.push("pages/authMessage");
         }, 2000);
+      }
     } catch (error) {
-      useSignUpMutation.isError &&
-        setTimeout(() => {
-          toast.error(useSignUpMutation.error.message);
-        }, 2000);
+      // Handle errors using the onError callback
+      const errorMessage =
+        error?.response?.data?.message || "An error occurred";
+      setTimeout(() => {
+        toast.error(errorMessage);
+      }, 2000);
     }
   };
 
@@ -68,7 +78,7 @@ const SignUp = () => {
                   message: "Name is required",
                 },
               }}
-              name="fname"
+              name="name"
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
                   placeholder={"Full Name"}
@@ -84,9 +94,7 @@ const SignUp = () => {
                 />
               )}
             />
-            <p style={{ color: "red" }}>
-              {errors.fname && errors.fname.message}
-            </p>
+            <p style={{ color: "red" }}>{errors.name && errors.name.message}</p>
           </div>
           <div className="mb-2  w-[100%]">
             <Controller
@@ -234,7 +242,7 @@ const SignUp = () => {
             size="md"
             variant="primary"
             loadingText="loading"
-            text={"Register"}
+            text={useSignUpMutation.isPending ? "loading...." : "Register"}
             disabled={false}
             fullWidth={true}
             loading={false}
