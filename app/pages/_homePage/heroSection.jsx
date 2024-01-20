@@ -1,11 +1,13 @@
 import React from "react";
+import Image from "next/image";
 import styles from "./home.module.css";
 import Button from "@/components/ui/button";
+import heroImage from "@/asets/heroImage.png";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:flex-row gap-3">
-      <div className={`w-[100%] md:w-[42%] ${styles.heroText}`}>
+    <section className="flex flex-col md:flex-row justify-between">
+      <div className={`w-[100%] md:w-[42%] pt-11 ${styles.heroText}`}>
         <h2>
           Hire <span>African</span> Tech Talents!
         </h2>
@@ -33,7 +35,15 @@ const HeroSection = () => {
           />
         </div>
       </div>
-      <div className="w-[100%] md:w-[42%]"></div>
+
+      <div className="w-[100%] md:w-[42%] relative ">
+        <div className="h-[200px] w-[250px] border-2 border-[#cbb26a] absolute left-[-100px]">
+          <div className={`w-[92%] mx-auto ${styles.videoText}`}>
+            <p>Hi, I’m Gustavo, founder at GRITO talent factory.....</p>
+          </div>
+        </div>
+        <Image src={heroImage} height={100} width={350} alt="heroImage" />
+      </div>
     </section>
   );
 };

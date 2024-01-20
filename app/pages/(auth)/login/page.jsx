@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
@@ -28,17 +29,28 @@ const Login = () => {
   const onSubmit = async (values) => {
     try {
       const response = await useLoginMutation.mutateAsync(values);
+      console.log(response);
       // Check if the mutation was successful
-      if (response) {
-        sessionStorage.setItem("userData", JSON.stringify(response));
-        console.log(userData);
+      if (response.code === 200) {
+        const userData = {
+          access: response.access,
+          name: response.name,
+          email: response.email,
+          refresh: response.refresh,
+          verified: response.is_verified,
+          user_type: response.user_type,
+        };
+        Cookies.set("userData", JSON.stringify(userData));
         setTimeout(() => {
           toast.success("login successfull");
           router.push("/pages/dashboard");
         }, 2000);
+      } else {
+        toast.message("invalid email or password");
       }
     } catch (error) {
       // Handle errors using the onError callback
+      console.log(error);
       const errorMessage =
         error?.response?.data?.message || "An error occurred";
       setTimeout(() => {

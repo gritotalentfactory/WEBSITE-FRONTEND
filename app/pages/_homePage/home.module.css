@@ -54,3 +54,11 @@
   -webkit-text-fill-color: transparent;
   padding-top: 6pxpx;
 }
+.videoText {
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}

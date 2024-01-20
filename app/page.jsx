@@ -5,8 +5,11 @@ import HeroSection from "./pages/_homePage/heroSection";
 
 const page = () => {
   return (
-    <div className="min-h-[600px] bg-gradientPrimary pt-14 px-4">
-      <HeroSection />
+    // <div className="min-h-[600px] bg-gradientPrimary pt-14 px-4">
+    //   <HeroSection />
+    // </div>
+    <div>
+      <SignUp />
     </div>
   );
 };

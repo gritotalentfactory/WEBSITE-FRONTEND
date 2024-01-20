@@ -1,11 +1,11 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/utils/helper";
 
-const buttonVariants = cva(`px-3 py-2 rounded-xl transition-all `, {
+const buttonVariants = cva(`px-3 py-2 rounded-xl  transition-all `, {
   variants: {
     variant: {
       primary:
-        "bg-primary hover:bg-transparent hover:border-2 hover:border-[#CBB26A] hover:text-white",
+        "bg-primary hover:bg-transparent hover:border-2 hover:border-[#CBB26A] hover:text-black",
       outline:
         "bg-transparent border-[#CBB26A] text-white border-2 hover:bg-primary  hover:text-black",
     },
