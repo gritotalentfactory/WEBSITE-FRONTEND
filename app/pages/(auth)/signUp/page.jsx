@@ -45,6 +45,8 @@ const SignUp = () => {
 
       // Check if the mutation was successful
       if (response) {
+        sessionStorage.setItem("userData", JSON.stringify(response));
+
         setTimeout(() => {
           toast.success("Signup successful!");
           router.push("pages/authMessage");

@@ -8,9 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
-
+import { useResetPassword } from "@/services/auth/authApi";
 import Logo from "@/asets/GritoLogo.svg";
-
 
 const Login = () => {
   const router = useRouter();
@@ -22,19 +21,38 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      otp_code: "",
       email: "",
       password: "",
     },
   });
-  const onSubmit = (values) => {
+  const useResetPasswordMutation = useResetPassword();
+  const onSubmit = async (values) => {
     if (values.password !== values.confirmpassword) {
       toast.error("Passwords do not match");
       return;
     }
-    setTimeout(() => {
-      toast.success("successfully logged in");
-      router.push("pages/dashboard");
-    }, 2000);
+    const { confirmpassword, ...dataWithoutConfirmPassword } = values;
+    try {
+      const response = await useResetPasswordMutation.mutateAsync(
+        dataWithoutConfirmPassword
+      );
+
+      // Check if the mutation was successful
+      if (response) {
+        setTimeout(() => {
+          toast.success("Password reset successful!");
+          router.push("pages/login");
+        }, 2000);
+      }
+    } catch (error) {
+      // Handle errors using the onError callback
+      const errorMessage =
+        error?.response?.data?.message || "An error occurred";
+      setTimeout(() => {
+        toast.error(errorMessage);
+      }, 2000);
+    }
   };
   return (
     <div className="w-screen h-screen px-6">
@@ -45,6 +63,43 @@ const Login = () => {
           className="min-h-full w-full md:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "
         >
           <h1>Reset Your Password</h1>
+          <p>Check your email for an otp and reset yuur password</p>
+          <div className="mb-2 w-[100%]">
+            <Controller
+              control={control}
+              name="otp_code"
+              rules={{
+                required: "This field is required",
+                pattern: {
+                  value: /^\d+$/,
+                  message: "Enter a valid number",
+                },
+                // min: {
+                //   value: 1,
+                //   message: "Number must be greater than or equal to 1",
+                // },
+                // max: {
+                //   value: 100,
+                //   message: "Number must be less than or equal to 100",
+                // },
+              }}
+              render={({ field: { onChange, onBlur, value }, formState }) => (
+                <CustomInput
+                  size="sm"
+                  placeholder={"Enter Your OTP"}
+                  fullWidth
+                  LabelText="OTP CODE"
+                  isPassword={false}
+                  value={value}
+                  type="number"
+                  variant="outlined"
+                  onBlur={onBlur} // notify when input is touched
+                  onChange={onChange} // send value to hook form
+                />
+              )}
+            />
+            {errors.otp_code && <p>{errors.otp_code.message}</p>}
+          </div>{" "}
           <div className="mb-2 w-[100%]">
             <Controller
               control={control}
@@ -125,15 +180,12 @@ const Login = () => {
               {errors.confirmpassword && errors.confirmpassword.message}
             </p>
           </div>
-
           <Button
             size="md"
             variant="primary"
-            loadingText="loading"
-            text="register"
+            text="reset"
             disabled={false}
             fullWidth={true}
-            loading={false}
           />
           <Link href={""} className="text-center pt-12">
             Having Trouble?

@@ -9,11 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
-import { useLogin } from "@/services/auth/authApi";
+import { useResetPasswordRequest } from "@/services/auth/authApi";
 
 const Login = () => {
   const router = useRouter();
-  const [showPassword, setShowPassword] = useState(false);
   const {
     handleSubmit,
     control,
@@ -24,17 +23,16 @@ const Login = () => {
       password: "",
     },
   });
-  const useLoginMutation = useLogin();
+  const usePasswordResetRequestMutaion = useResetPasswordRequest();
   const onSubmit = async (values) => {
     try {
-      const response = await useLoginMutation.mutateAsync(values);
+      const response = await usePasswordResetRequestMutaion.mutateAsync(values);
       // Check if the mutation was successful
       if (response) {
-        sessionStorage.setItem("userData", JSON.stringify(response));
         console.log(userData);
         setTimeout(() => {
-          toast.success("login successfull");
-          router.push("/pages/dashboard");
+          toast.success("password reset successfull");
+          router.push("/pages/forgotPassword");
         }, 2000);
       }
     } catch (error) {
@@ -54,8 +52,12 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="min-h-full w-full md:w-[48%] bg-white flex items-center flex-col justify-center gap-3 p-4 "
         >
-          <h1>Welcome Back!</h1>
-          <div className="mb-3 w-[100%]">
+          <h1>Recover Password</h1>
+          <p>
+            Enter an email so that an otp for resseting your password will be
+            sent to you
+          </p>
+          <div className="mb-2 w-[100%]">
             <Controller
               control={control}
               name="email"
@@ -71,7 +73,7 @@ const Login = () => {
               }}
               render={({ field: { onChange, onBlur, value }, formState }) => (
                 <CustomInput
-                  placeholder={"Enter Your Email"}
+                  placeholder={"Email"}
                   size="sm"
                   fullWidth
                   LabelText="Email"
@@ -79,65 +81,25 @@ const Login = () => {
                   value={value}
                   type="email"
                   variant="outlined"
-                  onBlur={onBlur} // notify when input is touched
-                  onChange={onChange} // send value to hook form
-                />
-              )}
-            />
-            {errors.email && <p>{errors?.email?.message}</p>}
-          </div>
-          <div className="mb-8 w-[100%]">
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: "Password is required",
-                },
-                minLength: {
-                  value: 8,
-                  message: "Password must be at least 8 characters",
-                },
-                pattern: {
-                  value:
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/,
-                  message: "Password must meet complexity requirements",
-                },
-              }}
-              name="password"
-              render={({ field: { onChange, onBlur, value }, formState }) => (
-                <CustomInput
-                  placeholder={"Enter Your pssword"}
-                  size="sm"
-                  fullWidth
-                  LabelText="Password"
-                  isPassword
-                  onClick={() => setShowPassword(!showPassword)}
-                  showPassword={showPassword}
-                  value={value}
-                  type={showPassword ? "text" : "password"}
-                  variant="outlined"
                   onBlur={onBlur}
                   onChange={onChange}
                 />
               )}
             />
-            <p>{errors.password && errors.password.message}</p>
+            {errors.email && (
+              <p style={{ color: "red" }}>{errors.email.message}</p>
+            )}
           </div>
 
           <Button
             size="md"
             variant="primary"
-            text={useLoginMutation.isPending ? "loading.." : "login"}
+            text={
+              usePasswordResetRequestMutaion.isPending ? "loading.." : "send"
+            }
             disabled={false}
             fullWidth={true}
           />
-          <Link href="/pages/passwordRequest" className="flex ml-auto">
-            Forgot Your Password?
-          </Link>
-          <Link href={""} className="text-center pt-12">
-            Having Trouble?
-          </Link>
         </form>
         <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />

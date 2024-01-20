@@ -1,7 +1,7 @@
-import { Inter } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import Navbar from "./_component/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const josephine = Josefin_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={josephine.className}>
         {/* <Navbar /> */}
         {children}
       </body>

@@ -2,13 +2,15 @@
 import Image from "next/image";
 import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
 import { useVerifyEmail } from "@/services/auth/authApi";
-import "react-toastify/dist/ReactToastify.css";
+import { useResendOtp } from "@/services/auth/authApi";
+
 const EmailVerificationPage = () => {
   const router = useRouter();
 
@@ -42,7 +44,23 @@ const EmailVerificationPage = () => {
       }, 2000);
     }
   };
-
+  // RESEND OTP FUNCTION
+  const useResendOTPMutation = useResendOtp();
+  const resendOTP = async (values) => {
+    const [otp_code, email] = values;
+    try {
+      const res = await useResendOTPMutation.mutateAsync(email);
+      if (res) {
+        toast.success("OTP resent");
+      }
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.message || "An error occurred";
+      setTimeout(() => {
+        toast.error(errorMessage);
+      }, 2000);
+    }
+  };
   return (
     <section className="w-screen h-screen px-6 ">
       <ToastContainer />
@@ -124,11 +142,16 @@ const EmailVerificationPage = () => {
             size="lg"
             variant="primary"
             loadingText="loading"
-            text="verify email"
+            text={useVerifyEmailMutation.isPending ? "loading" : "verify Email"}
             disabled={false}
             fullWidth={true}
             loading={false}
           />
+          <div className="pt-4 text-primary cursor-pointer">
+            <p onClick={resendOTP} className="text-[#CBB26A]">
+              Resend OTP
+            </p>
+          </div>
           <div className=" text-center pt-12 w-[100%]">
             <Link href={""}>Having Trouble?</Link>
           </div>
