@@ -47,9 +47,9 @@ const EmailVerificationPage = () => {
   // RESEND OTP FUNCTION
   const useResendOTPMutation = useResendOtp();
   const resendOTP = async (values) => {
-    const [otp_code, email] = values;
+    const { otp_code, ...others } = values;
     try {
-      const res = await useResendOTPMutation.mutateAsync(email);
+      const res = await useResendOTPMutation.mutateAsync(others);
       if (res) {
         toast.success("OTP resent");
       }
@@ -71,7 +71,7 @@ const EmailVerificationPage = () => {
           className="min-h-[300px] w-full lg:w-[48%] "
         >
           <h1 className="text-center">VERIFY EMAIL ADDRESS</h1>
-          <div className="my-3 md:mb-16">
+          <div className="my-3 md:mb-7">
             <Controller
               control={control}
               name="otp_code"
@@ -148,7 +148,7 @@ const EmailVerificationPage = () => {
             loading={false}
           />
           <div className="pt-4 text-primary cursor-pointer">
-            <p onClick={resendOTP} className="text-[#CBB26A]">
+            <p onClick={() => resendOTP} className="text-[#CBB26A]">
               Resend OTP
             </p>
           </div>
