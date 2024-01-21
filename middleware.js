@@ -14,11 +14,7 @@ export default function middleware(req) {
     return NextResponse.redirect(new URL("/pages/dashboard", req.url));
   }
 
-  if (
-    !loggedin &&
-    pathname !== "/pages/login" &&
-    pathname !== "/pages/signUp"
-  ) {
+  if (!loggedin && pathname === "/pages/dashboard") {
     return NextResponse.redirect(new URL("/pages/signUp", req.url));
   }
 }

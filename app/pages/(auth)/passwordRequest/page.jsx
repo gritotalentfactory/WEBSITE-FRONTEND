@@ -30,7 +30,7 @@ const Login = () => {
       // Check if the mutation was successful
       if (response) {
         setTimeout(() => {
-          toast.success("password reset successfull");
+          toast.success("An OTP code has been sent to you");
           router.push("/pages/forgotPassword");
         }, 2000);
       }
