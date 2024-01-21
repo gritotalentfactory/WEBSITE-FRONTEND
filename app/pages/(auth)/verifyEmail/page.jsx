@@ -47,9 +47,10 @@ const EmailVerificationPage = () => {
   // RESEND OTP FUNCTION
   const useResendOTPMutation = useResendOtp();
   const resendOTP = async (values) => {
-    const { otp_code, ...others } = values;
+    console.log(values);
+
     try {
-      const res = await useResendOTPMutation.mutateAsync(others);
+      const res = await useResendOTPMutation.mutateAsync(values);
       if (res) {
         toast.success("OTP resent");
       }

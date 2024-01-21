@@ -10,9 +10,17 @@ export const authApi = axios.create({
 
 authApi.defaults.headers.common["Content-Type"] = "application/json";
 
-const token = Cookies.get("token");
-if (token) {
-  authApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+const userData = Cookies.get("userData");
+if (userData) {
+  const myData = JSON.parse(userData);
+
+  if (myData.access && myData.refresh) {
+    authApi.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${myData.access}`;
+  } else {
+    delete authApi.defaults.headers.common["Authorization"];
+  }
 } else {
   delete authApi.defaults.headers.common["Authorization"];
 }
