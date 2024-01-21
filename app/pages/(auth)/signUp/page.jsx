@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";

@@ -144,9 +144,16 @@ const Login = () => {
             disabled={false}
             fullWidth={true}
           />
+
           <Link href="/pages/passwordRequest" className="flex ml-auto">
             Forgot Your Password?
           </Link>
+          <small>
+            Don't have an account?{" "}
+            <Link href={"/pages/signUp"} className="text-primary font-bold">
+              Sign Up
+            </Link>
+          </small>
           <Link href={""} className="text-center pt-12">
             Having Trouble?
           </Link>
