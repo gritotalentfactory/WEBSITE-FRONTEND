@@ -29,13 +29,13 @@ const Login = () => {
       const response = await usePasswordResetRequestMutaion.mutateAsync(values);
       // Check if the mutation was successful
       if (response) {
-        console.log(userData);
         setTimeout(() => {
           toast.success("password reset successfull");
           router.push("/pages/forgotPassword");
         }, 2000);
       }
     } catch (error) {
+      console.log(error);
       // Handle errors using the onError callback
       const errorMessage =
         error?.response?.data?.message || "An error occurred";
@@ -101,7 +101,7 @@ const Login = () => {
             fullWidth={true}
           />
         </form>
-        <div className="bg-black min-h-screen w-full md:w-[48%] border-4 flex items-center justify-center border-black">
+        <div className="hidden bg-black min-h-screen w-full md:w-[48%] border-4 md:flex items-center justify-center border-black">
           <Image src={Logo} height={350} width={350} alt="logo" />
         </div>
       </main>
