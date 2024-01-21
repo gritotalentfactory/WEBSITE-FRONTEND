@@ -10,22 +10,69 @@ import Line from '/assets/line.png'
 
 const page = () => {
   return <div>
-    <nav className="w-full bg-black fixed text-[#CBB26A]">
-    <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+ <footer className="px-4 py-8 bg-black w-full text-white">
+	<div className="container lg:flex sm:block md:flex  justify-between mx-auto gap-x-3 gap-y-5 ">
+		<div className=" ">
     <Link href="./">
     <Image src={Logo} alt="Some text" className="lg:inline-flex items-center p-2 mr-4" />
               </Link>
-              <ul className="md:flex items-center justify-between pt-4 md:pt-0">
-                <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">Hire Talents</a></li>
-                <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">GRITO Academy</a></li>
-                <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">Contact Us</a></li>
-               
-            </ul>
+              <div className="mt-4">
+    <p className="text-xs">Carrer Sicilia 190 1ero 2°, </p>
+<p className="text-xs">08013, Ciudad de Barcelona,</p>
+<p className="text-xs">Espana.</p>
+</div>
+<div className="mt-4">
+    <p className="text-xs"> Africa: +234 802 919 7097</p>
+<p className="text-xs">Email: emeka@grito.africa</p>
+</div>
+<div className="mt-4">
+<p className="text-xs">Europe: +346 310 385 88</p>
+<p className="text-xs">Email: gustavo@grito.africa</p>
+</div>
+		</div>
+    <span className=" "> <Image src={Line} alt="Line" className="" /></span>
+		<div className="  ">
+    <h3 className="text-[#CBB26A] p-6 text-bold ">OFFICE HOUR</h3>
+              <div className="mt-4 ">
+    <p className="text-xs">9am - 4pm (Mon - Sat, WAT) </p>
+ <button type="button"  className="text-[#CBB26A] hover:text-white cursor-pointer rounded-full lg:px-4 py-1  md:px-1 sm:px-1 border border-[#CBB26A] mt-14">Chat With Us</button>
+</div>
+
+     
+		</div>
+    <span className=""> <Image src={Line} alt="Line" className="   " /></span>
+	
+		
+			<div className=" ">
+      <div className="mt-4 pt-14">
+    <p className="text-xs w-60 pr-8 leading-7">At GRITO Talent Factory, our motto says,
+‘Never Waste Talent’. We take African Tech
+talents one step closer to their dream tech 
+jobs with top European Companies.</p>
+
+<div className="flex ml-32 mt-16 ">
+  <Link href="https://youtube.com/@gritotalentagency">
+    <Image src={Youtube} alt="Youtube icon" className=" items-center p-2 w-8 " />
+              </Link>
               
-           
-              </div>
-          
-              </nav>
+              <Link href="https://linkedin.com/company/grito-talent-agency">
+    <Image src={Linkedin} alt="Linkedin icon" className="items-center p-2 w-8 " />
+              </Link></div>
+
+    
+        
+        
+ 
+    </div>
+			</div>
+		
+		
+	</div>
+	<div className="flex items-center justify-center px-6 pt-12 text-sm">
+		<span className="dark:text-gray-400">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</span>
+	</div>
+</footer>
+    
 
        
             
