@@ -46,7 +46,8 @@ const SignUp = () => {
 
       // Check if the mutation was successful
 
-      if (response.code === 200) {
+      if (response) {
+        console.log(response);
         const userData = {
           access: response.access,
           name: response.name,
@@ -64,6 +65,7 @@ const SignUp = () => {
         toast.error("Sign up not successfull");
       }
     } catch (error) {
+      console.log(error);
       // Handle errors using the onError callback
       const errorMessage =
         error?.response?.data?.message || "An error occurred";
