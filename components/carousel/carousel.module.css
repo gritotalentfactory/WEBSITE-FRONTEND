@@ -1,0 +1,41 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.caro {
+  position: relative;
+  padding-top: 20px;
+}
+.carouselItem {
+  width: 60%; /* Update to 100% */
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+  background: #080808;
+  min-height: 400px;
+  color: white;
+  box-shadow: 0px 15px 30px 0px rgba(203, 178, 106, 0.3);
+}
+.carouselItem label {
+  color: #cbb26a;
+  width: 20%;
+}
+.carouselItem p {
+  color: white !important;
+  width: 50%;
+}
+.tesBtn {
+  position: absolute;
+  bottom: -90px;
+  left: 40%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.tesBtn img {
+  cursor: pointer;
+}
