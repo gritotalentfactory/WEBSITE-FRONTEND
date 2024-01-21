@@ -6,6 +6,7 @@ import { useForm, Controller } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import Button from "@/components/ui/button";
 import { CustomInput } from "@/components/ui/input/customInput";
 import { useResetPassword } from "@/services/auth/authApi";
@@ -22,11 +23,12 @@ const Login = () => {
   } = useForm({
     defaultValues: {
       otp_code: "",
-      email: "",
       password: "",
     },
   });
   const useResetPasswordMutation = useResetPassword();
+  const userData = JSON.parse(Cookies.get("userData"));
+  const email = userData.email;
   const onSubmit = async (values) => {
     if (values.password !== values.confirmpassword) {
       toast.error("Passwords do not match");
@@ -35,7 +37,8 @@ const Login = () => {
     const { confirmpassword, ...dataWithoutConfirmPassword } = values;
     try {
       const response = await useResetPasswordMutation.mutateAsync(
-        dataWithoutConfirmPassword
+        dataWithoutConfirmPassword,
+        email
       );
 
       // Check if the mutation was successful
@@ -46,6 +49,7 @@ const Login = () => {
         }, 2000);
       }
     } catch (error) {
+      console.log(error);
       // Handle errors using the onError callback
       const errorMessage =
         error?.response?.data?.message || "An error occurred";

@@ -11,7 +11,7 @@ const CarouselSection = () => {
   const renderContent = (item) => (
     <section classNam={style.carouselContainer}>
       <Image src={item.flag} height={60} width={60} alt="flag" />
-      <main className="flex gap-5">
+      <main className="flex flex-col md:flex-row gap-5">
         <div>
           <div className="flex gap-10 items-center">
             <label htmlFor="">Name:</label>

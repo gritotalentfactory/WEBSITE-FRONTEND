@@ -8,7 +8,7 @@
   padding-top: 20px;
 }
 .carouselItem {
-  width: 60%; /* Update to 100% */
+  min-width: 60%; /* Update to 100% */
   border-radius: 30px;
   display: flex;
   align-items: center;
