@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Carousel from "@/components/carousel";
 import style from "./home.module.css";
+import Button from "@/components/ui/button";
 
 const CarouselSection = () => {
   const info = Talent;
@@ -52,11 +53,22 @@ const CarouselSection = () => {
   );
   return (
     <div>
-      <Carousel
-        title={"Talent Details"}
-        info={info}
-        renderContent={renderContent}
-      />
+      <div>
+        <Carousel
+          title={"Talent Details"}
+          info={info}
+          renderContent={renderContent}
+        />
+      </div>
+      <div className="flex items-center justify-center mt-16">
+        <Button
+          size="md"
+          variant="primary"
+          text={"Play Video"}
+          disabled={false}
+          fullWidth={false}
+        />
+      </div>
     </div>
   );
 };
