@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { toast, ToastContainer } from "react-toastify";
 import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
