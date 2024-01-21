@@ -10,6 +10,7 @@ import { CustomInput } from "@/components/ui/input/customInput";
 import Logo from "@/asets/GritoLogo.svg";
 import { useVerifyEmail } from "@/services/auth/authApi";
 import { useResendOtp } from "@/services/auth/authApi";
+import Cookies from "js-cookie";
 
 const EmailVerificationPage = () => {
   const router = useRouter();
@@ -46,15 +47,18 @@ const EmailVerificationPage = () => {
   };
   // RESEND OTP FUNCTION
   const useResendOTPMutation = useResendOtp();
-  const resendOTP = async (values) => {
-    console.log(values);
-
+  const userData = Cookies.get("userData");
+  const user = JSON.parse(userData);
+  const email = user.email;
+  console.log(email);
+  const resendOTP = async (email) => {
     try {
-      const res = await useResendOTPMutation.mutateAsync(values);
+      const res = await useResendOTPMutation.mutateAsync(email);
       if (res) {
         toast.success("OTP resent");
       }
     } catch (error) {
+      console.log(error);
       const errorMessage =
         error?.response?.data?.message || "An error occurred";
       setTimeout(() => {
@@ -149,9 +153,16 @@ const EmailVerificationPage = () => {
             loading={false}
           />
           <div className="pt-4 text-primary cursor-pointer">
-            <p onClick={() => resendOTP} className="text-[#CBB26A]">
+            <button
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                resendOTP();
+              }}
+              className="text-[#CBB26A]"
+            >
               Resend OTP
-            </p>
+            </button>
           </div>
           <div className=" text-center pt-12 w-[100%]">
             <Link href={""}>Having Trouble?</Link>

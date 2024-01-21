@@ -44,13 +44,23 @@ const SignUp = () => {
       );
 
       // Check if the mutation was successful
-      if (response) {
-        sessionStorage.setItem("userData", JSON.stringify(response));
 
+      if (response.code === 200) {
+        const userData = {
+          access: response.access,
+          name: response.name,
+          email: response.email,
+          refresh: response.refresh,
+          verified: response.is_verified,
+          user_type: response.user_type,
+        };
+        Cookies.set("userData", JSON.stringify(userData));
         setTimeout(() => {
           toast.success("Signup successful!");
           router.push("pages/authMessage");
         }, 2000);
+      } else {
+        toast.error("Sign up not successfull");
       }
     } catch (error) {
       // Handle errors using the onError callback
