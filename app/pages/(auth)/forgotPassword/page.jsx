@@ -27,8 +27,8 @@ const Login = () => {
     },
   });
   const useResetPasswordMutation = useResetPassword();
-  const userData = JSON.parse(Cookies.get("userData"));
-  const email = userData.email;
+  const user = JSON.parse(Cookies.get("user"));
+  const email = user.email;
   const onSubmit = async (values) => {
     if (values.password !== values.confirmpassword) {
       toast.error("Passwords do not match");
@@ -37,15 +37,19 @@ const Login = () => {
     const { confirmpassword, ...dataWithoutConfirmPassword } = values;
     try {
       const response = await useResetPasswordMutation.mutateAsync(
-        dataWithoutConfirmPassword,
-        email
+        // dataWithoutConfirmPassword,
+        // email
+        {
+          ...dataWithoutConfirmPassword,
+          email: email,
+        }
       );
 
       // Check if the mutation was successful
       if (response) {
         setTimeout(() => {
           toast.success("Password reset successful!");
-          router.push("pages/login");
+          router.push("/pages/login");
         }, 2000);
       }
     } catch (error) {

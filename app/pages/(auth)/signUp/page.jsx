@@ -48,7 +48,7 @@ const SignUp = () => {
 
       if (response) {
         console.log(response);
-        const userData = {
+        const user = {
           access: response.access,
           name: response.name,
           email: response.email,
@@ -56,10 +56,10 @@ const SignUp = () => {
           verified: response.is_verified,
           user_type: response.user_type,
         };
-        Cookies.set("userData", JSON.stringify(userData));
+        Cookies.set("user", JSON.stringify(user));
         setTimeout(() => {
           toast.success("Signup successful!");
-          router.push("pages/authMessage");
+          router.push("/pages/authMessage");
         }, 2000);
       } else {
         toast.error("Sign up not successfull");

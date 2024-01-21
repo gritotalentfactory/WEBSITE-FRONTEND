@@ -47,9 +47,9 @@ const EmailVerificationPage = () => {
   };
   // RESEND OTP FUNCTION
   const useResendOTPMutation = useResendOtp();
-  const userData = Cookies.get("userData");
-  const user = JSON.parse(userData);
-  const email = user.email;
+  const user = Cookies.get("user");
+  const userEmail = JSON.parse(user);
+  const email = userEmail.email;
 
   const resendOTP = async (email) => {
     try {
