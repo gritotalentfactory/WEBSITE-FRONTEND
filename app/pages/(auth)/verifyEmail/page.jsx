@@ -50,10 +50,10 @@ const EmailVerificationPage = () => {
   const userData = Cookies.get("userData");
   const user = JSON.parse(userData);
   const email = user.email;
-  console.log(email);
+
   const resendOTP = async (email) => {
     try {
-      const res = await useResendOTPMutation.mutateAsync(email);
+      const res = await useResendOTPMutation.mutateAsync({ email });
       if (res) {
         toast.success("OTP resent");
       }
@@ -157,7 +157,7 @@ const EmailVerificationPage = () => {
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
-                resendOTP();
+                resendOTP(email);
               }}
               className="text-[#CBB26A]"
             >
