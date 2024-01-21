@@ -3,7 +3,7 @@ import Logo from '/assets/logo.png';
 const Footer = () => {
   return (
     <div>
-        <footer className=" px-8 divide-y bg-black   text-white dark:text-gray-100">
+            <footer className=" px-8 divide-y bg-black  max-h-128 text-white dark:text-gray-100">
 	<div className="container flex flex-col p-10  mx-auto space-y-8 lg:flex-row lg:space-y-0">
 
   <div className="mb-6 md:mb-0 p-6 max-w-1/3">
@@ -24,12 +24,12 @@ const Footer = () => {
 <p className="text-xs">Email: gustavo@grito.africa</p>
 </div>
         </div>
-        <div class=" left-1/2 ml-6 w-0.5 h-70 bg-white"></div>
+        <div class=" left-1/2 ml-6 w-0.5 h-70  bg-white"></div>
       <div className="p-6 ">
        <h3 className="text-[#CBB26A] p-6 text-bold">OFFICE HOUR</h3>
               <div className="mt-4">
     <p className="text-xs">9am - 4pm (Mon - Sat, WAT) </p>
- <button type="button"  className="text-[#CBB26A] hover:text-white  rounded-full px-8 py-2 border border-[#CBB26A] mt-14">Chat With Us</button>
+ <button type="button"  className="text-[#CBB26A] hover:text-white cursor-pointer rounded-full px-8 py-2 border border-[#CBB26A] mt-14">Chat With Us</button>
 </div>
    
  
@@ -44,11 +44,11 @@ talents one step closer to their dream tech
 jobs with top European Companies.</p>
 
 <div className="flex ml-32 mt-16 ">
-  <Link href="./">
+  <Link href="https://youtube.com/@gritotalentagency">
     <Image src={Youtube} alt="Youtube icon" className=" items-center p-2 w-8 " />
               </Link>
               
-              <Link href="./">
+              <Link href="https://linkedin.com/company/grito-talent-agency">
     <Image src={Linkedin} alt="Linkedin icon" className="items-center p-2 w-8 " />
               </Link></div>
 
@@ -59,9 +59,10 @@ jobs with top European Companies.</p>
     </div>
     
     </div>
-    
+    <div className="absolute pt-80  pl-44"><p className=" text-sm text-center mt-8 mb-10 ">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</p></div>
     </div>
-    <p className="py-6 text-sm text-center dark:text-gray-400">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</p>
+   
+   
 
 		
 

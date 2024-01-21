@@ -26,7 +26,7 @@ const page = () => {
           
               </nav>
 
-
+       
             
   </div>;
   
