@@ -5,6 +5,7 @@ import Youtube from '/assets/youtube.png'
 import Linkedin from '/assets/linkedin.png'
 import Link from "next/link";
 import Image from "next/image";
+import Line from '/assets/line.png'
 
 
 const page = () => {
