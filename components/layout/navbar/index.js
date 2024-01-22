@@ -12,7 +12,8 @@ const NavBar = () => {
     <Image src={Logo} alt="Some text" className="lg:inline-flex items-center p-2 mr-4" />
               </Link>
               <ul className="md:flex items-center justify-between pt-4 md:pt-0">
-                <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">Hire Talents</a></li>
+              <Link href="/pages/signUp">Sign Up</Link>
+               
                 <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">GRITO Academy</a></li>
                 <li><a className="md:p-4 py-3 px-0 block text-md hover:text-white" href="#">Contact Us</a></li>
                
