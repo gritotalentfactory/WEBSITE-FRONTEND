@@ -7,7 +7,7 @@ const InputVariants = cva(
   {
     variants: {
       variant: {
-        outlined: "border-gray-300 border-4 text-black",
+        outlined: "border-gray-300 border-[2px] rounded-large text-black",
       },
       size: {
         sm: "py-2 px-2",
@@ -44,9 +44,11 @@ export const CustomInput = ({
   variant,
   onBlur,
   showPassword,
+  confirmPassword,
   onClick,
   type,
   onChange,
+  placeholder,
   value,
   ...props
 }) => {
@@ -59,7 +61,11 @@ export const CustomInput = ({
             className="absolute right-2 top-2 cursor-pointer"
             onClick={onClick}
           >
-            {showPassword ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+            {showPassword || confirmPassword ? (
+              <EyeInvisibleOutlined />
+            ) : (
+              <EyeOutlined />
+            )}
           </div>
         )}
         <input
@@ -67,6 +73,7 @@ export const CustomInput = ({
           onBlur={onBlur}
           onChange={onChange}
           value={value}
+          placeholder={placeholder}
           className={cn(
             InputVariants({
               className,

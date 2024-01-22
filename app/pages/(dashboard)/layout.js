@@ -1,6 +1,5 @@
 import { Inter, Josefin_Sans } from "next/font/google";
-import "./globals.css";
-import { ReactQueryProvider } from "@/react-query-provider";
+import SideBar from "./_components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 const josefin = Josefin_Sans({ subsets: ["latin"] });
@@ -14,7 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={josefin.className}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <div className="flex gap-4">
+          <SideBar />
+          {children}
+        </div>
       </body>
     </html>
   );
