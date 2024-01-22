@@ -4,12 +4,10 @@ import Line from '/assets/line.png'
 const Footer = () => {
   return (
     <div>
-            <footer className=" px-8 divide-y bg-black  max-h-128 text-white dark:text-gray-100">
-	<div className="container flex flex-col p-10  mx-auto space-y-8 lg:flex-row lg:space-y-0">
-
-  <div className="mb-6 md:mb-0 p-6 max-w-1/3">
-    <div>
-  <Link href="./">
+         <footer className="px-4 py-8 bg-black w-full text-white">
+	<div className="container lg:flex sm:block md:flex  justify-between mx-auto gap-x-3 gap-y-5 ">
+		<div className=" ">
+    <Link href="./">
     <Image src={Logo} alt="Some text" className="lg:inline-flex items-center p-2 mr-4" />
               </Link>
               <div className="mt-4">
@@ -25,25 +23,23 @@ const Footer = () => {
 <p className="text-xs">Europe: +346 310 385 88</p>
 <p className="text-xs">Email: gustavo@grito.africa</p>
 </div>
-</div>
-        </div>
-        <div class=" left-1/2 ml-6 w-0.5 h-70  bg-white"></div>
-      <div className="p-6 ">
-       <h3 className="text-[#CBB26A] p-6 text-bold">OFFICE HOUR</h3>
-              <div className="mt-4">
+		</div>
+    <span className=" "> <Image src={Line} alt="Line" className="" /></span>
+		<div className="  ">
+    <h3 className="text-[#CBB26A] p-6 text-bold ">OFFICE HOUR</h3>
+              <div className="mt-4 ">
     <p className="text-xs">9am - 4pm (Mon - Sat, WAT) </p>
- <button type="button"  className="text-[#CBB26A] hover:text-white cursor-pointer rounded-full px-8 py-2 border border-[#CBB26A] mt-14">Chat With Us</button>
+ <button type="button"  className="text-[#CBB26A] hover:text-white cursor-pointer rounded-full lg:px-4 py-1  md:px-1 sm:px-1 border border-[#CBB26A] mt-14">Chat With Us</button>
 </div>
-   
- 
-    </div>
-    <div class=" left-1/2 ml-6 w-0.5 h-70 bg-white">
-    <Image src={Line} alt="Line" className="" />
-    </div>
-    <div className="p-6">
-      
-              <div className="mt-4 pt-14">
-    <p className="text-xs w-64 leading-7">At GRITO Talent Factory, our motto says,
+
+     
+		</div>
+    <span className=""> <Image src={Line} alt="Line" className="   " /></span>
+	
+		
+			<div className=" ">
+      <div className="mt-4 pt-14">
+    <p className="text-xs w-60 pr-8 leading-7">At GRITO Talent Factory, our motto says,
 ‘Never Waste Talent’. We take African Tech
 talents one step closer to their dream tech 
 jobs with top European Companies.</p>
@@ -62,16 +58,14 @@ jobs with top European Companies.</p>
         
  
     </div>
-    
-    </div>
-    <div className="absolute pt-80  pl-44"><p className=" text-sm text-center mt-8 mb-10 ">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</p></div>
-    </div>
-   
-   
-
+			</div>
 		
-
-    </footer>
+		
+	</div>
+	<div className="flex items-center justify-center px-6 pt-12 text-sm">
+		<span className="dark:text-gray-400">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</span>
+	</div>
+</footer>
     </div>
   )
 }
