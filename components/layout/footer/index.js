@@ -63,7 +63,7 @@ jobs with top European Companies.</p>
 		
 	</div>
 	<div className="flex items-center justify-center px-6 pt-12 text-sm">
-		<span className="dark:text-gray-400">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</span>
+		<span className="text-white">© ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.</span>
 	</div>
 </footer>
     </div>
