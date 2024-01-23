@@ -7,11 +7,8 @@ import ArrowRight from "@/asets/arrowRight.svg";
 import styles from "./carousel.module.css";
 
 const Carousel = ({ info, title, renderContent }) => {
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
-
-  
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,6 +76,7 @@ const Carousel = ({ info, title, renderContent }) => {
               height={60}
               width={60}
               onClick={nextSlide}
+              className={styles.lastChild}
               alt=""
             />
           </div>

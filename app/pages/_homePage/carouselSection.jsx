@@ -1,33 +1,17 @@
 "use client";
 import React from "react";
-import { Controller, useForm } from "react-hook-form";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import Carousel from "@/components/carousel";
 import style from "./home.module.css";
 import Button from "@/components/ui/button";
-import { CustomInput } from "@/components/ui/input/customInput";
 import { Talent } from "@/components/carousel/data";
-import CountrySelector from "@/components/ui/input/countryInput";
-import RadioInput from "@/components/ui/input/radioInput";
+
+import FormModal from "@/components/modal/formModal";
 
 const CarouselSection = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmpassword: "",
-    },
-  });
-  const onSubmit = async (values) => {};
 
   const openModal = () => {
     setIsOpen(true);
@@ -39,7 +23,9 @@ const CarouselSection = () => {
   const renderContent = (item) => (
     <section classNam={style.carouselContainer}>
       <Image src={item.flag} height={60} width={60} alt="flag" />
-      <main className="flex flex-col md:flex-row gap-5">
+      <main
+        className={`flex flex-col md:flex-row gap-5 ${style.mainContainer}`}
+      >
         <div>
           <div className="flex gap-10 items-center">
             <label htmlFor="">Name:</label>
@@ -73,7 +59,9 @@ const CarouselSection = () => {
             width={300}
             alt="profile"
           />
-          <h4 className="text-[#CBB26A]">{item.profileTitle}</h4>
+          <h4 className="text-[#CBB26A] flex justify-end">
+            {item.profileTitle}
+          </h4>
         </div>
       </main>
     </section>
@@ -103,52 +91,7 @@ const CarouselSection = () => {
         </div>
       </div>
 
-      {isOpen && (
-        <div className="absolute h-screen w-screen  bottom-0 flex items-center justify-center">
-          <div className="bg-black min-h-[600px] min-w-[600px] mx-auto">
-            <h1
-              className="text-red-600 flex justify-end cursor-pointer pr-4 "
-              onClick={closeModal}
-            >
-              X
-            </h1>
-            <form action="" className={style.carouselForm}>
-              <section className="mb-2  w-[100%]">
-                <div className={style.inputContainer}>
-                  <label htmlFor="">Name of Client:</label>
-                  <input type="text" />
-                </div>
-                <div className={style.inputContainer}>
-                  <label htmlFor="">Country:</label>
-                  <CountrySelector />
-                </div>
-                <div className={style.inputContainer}>
-                  <label htmlFor="">Skill Set:</label>
-                  <textarea name="" id="" cols="30" rows="5"></textarea>
-                </div>
-                <div className={` ${style.inputContainer} text-black mx-3`}>
-                  <label htmlFor="">Level</label>
-                  <RadioInput text={"Beginner"} />
-                  <RadioInput text={"Intermediate"} />
-                  <RadioInput text={"Professional"} />
-                </div>
-                <div className={` ${style.inputContainer} text-black mx-3`}>
-                  <label htmlFor="">Gender:</label>
-                  <RadioInput text={"Female"} />
-                  <RadioInput text={"Male"} />
-                </div>
-              </section>
-              <Button
-                size="md"
-                variant="outline"
-                text={"Scroll"}
-                disabled={false}
-                fullWidth={false}
-              />
-            </form>
-          </div>
-        </div>
-      )}
+      {isOpen && <FormModal openModal={openModal} closeModal={closeModal} />}
     </div>
   );
 };
