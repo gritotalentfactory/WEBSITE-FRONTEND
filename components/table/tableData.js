@@ -2,6 +2,7 @@ import Profile from "@/asets/profile.png";
 import flag from "@/asets/kenya.png";
 export const TableData = [
   {
+    id: 1,
     flag: flag,
     Name: "Felix Adhiambo",
     Country: "Nairobi, Kenya",
@@ -13,6 +14,7 @@ export const TableData = [
     profileTitle: "Digital Marketing Specialist",
   },
   {
+    id: 2,
     flag: flag,
     Name: "Felix Adhiambo",
     Country: "Nairobi, Kenya",
@@ -24,6 +26,7 @@ export const TableData = [
     profileTitle: "Digital Marketing Specialist",
   },
   {
+    id: 3,
     flag: flag,
     Name: "Felix Adhiambo",
     Country: "Nairobi, Kenya",
@@ -35,6 +38,7 @@ export const TableData = [
     profileTitle: "Digital Marketing Specialist",
   },
   {
+    id: 4,
     flag: flag,
     Name: "Felix Adhiambo",
     Country: "Nairobi, Kenya",
@@ -46,6 +50,7 @@ export const TableData = [
     profileTitle: "Digital Marketing Specialist",
   },
   {
+    id: 5,
     flag: flag,
     Name: "Felix Adhiambo",
     Country: "Nairobi, Kenya",

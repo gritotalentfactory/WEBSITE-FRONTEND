@@ -20,7 +20,7 @@ const page = () => {
         </p>
       </Marquee>
 
-      <div className="flex justify-between mt-12">
+      <div className="flex justify-between mt-12 w-[80%]">
         <Card Text={"Total Talent"} Number={"20"} />
         <Card Text={"Deleted Talent"} Number={"20"} />
         <Card Text={"Active Talent"} Number={"20"} />

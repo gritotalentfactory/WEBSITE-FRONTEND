@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { TableData } from "./tableData";
-import { view } from "../modal";
+import MyModal, { view } from "../modal";
 import {
   Menu,
   MenuList,
@@ -17,6 +17,7 @@ import {
   MenuLink,
 } from "@reach/menu-button";
 import "@reach/menu-button/styles.css";
+import Link from "next/link";
 
 const columnHelper = createColumnHelper();
 const columns = [
@@ -37,20 +38,28 @@ const columns = [
     cell: (info) => info.getValue(),
   }),
   columnHelper.accessor("dateCreated", {
-    // New "Date Created" column
     header: "Date Created",
-    cell: (info) => new Date().toLocaleDateString(), // Assuming dateCreated is a valid date
+    cell: (info) => new Date().toLocaleDateString(),
   }),
-  // columnHelper.accessor("view more", {
-  //   cell: (info) => view.icon,
-  // }),
 ];
 
 export function Table() {
   const [data, setData] = useState(TableData);
+  const deletItem = (id) => {
+    const updatedData = data.filter((item) => item.id !== id);
+    setData(updatedData);
+  };
 
-  const OpenModal = (row) => {
-    console.log(row);
+  let [isOpen, setIsOpen] = useState(false);
+  const [tableData, setTableData] = useState({});
+
+  function closeModal(id) {
+    setIsOpen(false);
+  }
+
+  const openModal = (details) => {
+    setIsOpen(!isOpen);
+    setTableData(details);
   };
 
   const table = useReactTable({
@@ -127,11 +136,13 @@ export function Table() {
                     <BsThreeDotsVertical />
                   </MenuButton>
                   <MenuList>
-                    <MenuItem onSelect={() => OpenModal(row.original)}>
+                    <MenuItem onSelect={() => openModal(row.original)}>
                       View More
                     </MenuItem>
                     <MenuItem>Edit</MenuItem>
-                    <MenuItem>Delete</MenuItem>
+                    <MenuItem onSelect={() => deletItem(row.original.id)}>
+                      Delete
+                    </MenuItem>
                   </MenuList>
                 </Menu>
               </td>
@@ -139,6 +150,59 @@ export function Table() {
           ))}
         </tbody>
       </table>
+      <MyModal
+        closeModal={closeModal}
+        openModal={openModal}
+        title={"View More Infomation "}
+        isOpen={isOpen}
+        content={
+          <section>
+            <p
+              onClick={closeModal}
+              className=" text-red-700 cursor-pointer flex justify-end"
+            >
+              X
+            </p>
+            <div className="flex flex-col gap-4">
+              <p>
+                {" "}
+                <span>Id: </span>
+                {tableData.id}
+              </p>
+              <p>
+                <span>Name: </span>
+                {tableData.Name}
+              </p>
+              <p>
+                {" "}
+                <span>Country: </span>
+                {tableData.Country}
+              </p>
+              <p>
+                <span>SkillSet: </span>
+                {tableData.skill}
+              </p>
+              <p>
+                <span>Level: </span>
+                {tableData.leve}
+              </p>
+              <p>
+                <span>Gender: </span>
+                {tableData.gender}
+              </p>
+              <Link href={tableData.portfolio}>
+                <span>Portfolio: </span>
+                {tableData.portfolio}
+              </Link>
+              <img src={tableData.profileImage} alt="" />
+              <p>
+                <span>Profile Title: </span>
+                {tableData.profileTitle}
+              </p>
+            </div>
+          </section>
+        }
+      />
     </div>
   );
 }
