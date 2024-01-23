@@ -5,7 +5,7 @@ const buttonVariants = cva(`px-3 py-2 rounded-xl  transition-all `, {
   variants: {
     variant: {
       primary:
-        "bg-primary hover:bg-transparent hover:border-2 hover:border-[#CBB26A] hover:text-black",
+        "bg-primary hover:bg-transparent hover:border-2 hover:border-[#CBB26A] hover:text-[#CBB26A]",
       outline:
         "bg-transparent border-[#CBB26A] text-white border-2 hover:bg-primary  hover:text-black",
     },

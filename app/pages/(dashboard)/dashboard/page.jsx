@@ -1,15 +1,24 @@
 "use client";
 import Cookies from "js-cookie";
-import React from "react";
+import React, { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { getCurrentDate } from "@/utils/dateFormat";
 import Card from "@/components/card";
 import { Table } from "@/components/table";
+import FormModal from "@/components/modal/formModal";
 import Button from "@/components/ui/button";
 
 const page = () => {
   const userData = JSON.parse(Cookies.get("userData"));
   const time = getCurrentDate();
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+
+  const openCreateModal = () => {
+    setIsCreateOpen(true);
+  };
+  const closeCreateModal = () => {
+    setIsCreateOpen(false);
+  };
   return (
     <div>
       <h1>{`Hello ${userData.name}`}</h1>
@@ -47,11 +56,14 @@ const page = () => {
           text={"+ Create Talent"}
           disabled={false}
           fullWidth={false}
+          onClick={openCreateModal}
         />
       </div>
       <div>
         <Table />
       </div>
+      {/* CREATE MODAL */}
+      {isCreateOpen && <FormModal closeModal={closeCreateModal} />}
     </div>
   );
 };

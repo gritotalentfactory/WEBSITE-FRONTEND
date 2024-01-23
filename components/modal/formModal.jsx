@@ -21,7 +21,7 @@ const FormModal = ({ openModal, closeModal }) => {
   });
   const onSubmit = async (values) => {};
   return (
-    <div>
+    <div style={{ zIndex: "1000" }}>
       <div className="absolute h-screen w-screen  bottom-0 flex items-center justify-center">
         <div className="bg-black min-h-[600px] min-w-[600px] mx-auto">
           <h1

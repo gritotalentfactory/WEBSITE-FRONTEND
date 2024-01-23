@@ -18,6 +18,7 @@ import {
 } from "@reach/menu-button";
 import "@reach/menu-button/styles.css";
 import Link from "next/link";
+import FormModal from "../modal/formModal";
 
 const columnHelper = createColumnHelper();
 const columns = [
@@ -61,7 +62,7 @@ export function Table() {
     setIsOpen(!isOpen);
     setTableData(details);
   };
-
+  
   const table = useReactTable({
     data,
     columns,
@@ -150,6 +151,8 @@ export function Table() {
           ))}
         </tbody>
       </table>
+      VIEW MORE MODAL
+      {/*  */}
       <MyModal
         closeModal={closeModal}
         openModal={openModal}
@@ -203,6 +206,7 @@ export function Table() {
           </section>
         }
       />
+
     </div>
   );
 }

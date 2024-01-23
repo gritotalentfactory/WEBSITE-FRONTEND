@@ -17,12 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={josefin.className}>
         <ReactQueryProvider>
-          <div>
-            <NavBar/>
-            {children}
-            <Footer/>
-            </div>
-
+          <div>{children}</div>
         </ReactQueryProvider>
       </body>
     </html>
