@@ -1,6 +1,8 @@
 import { Inter, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { ReactQueryProvider } from "@/react-query-provider";
+import NavBar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const josefin = Josefin_Sans({ subsets: ["latin"] });
@@ -14,7 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={josefin.className}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <div>
+            <NavBar/>
+            {children}
+            <Footer/>
+            </div>
+
+        </ReactQueryProvider>
       </body>
     </html>
   );
