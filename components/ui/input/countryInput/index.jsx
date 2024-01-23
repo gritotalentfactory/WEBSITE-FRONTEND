@@ -15,7 +15,7 @@ const CountrySelector = () => {
       options={options}
       value={value}
       onChange={changeHandler}
-      className="border-gray-300 border-4 text-black p-2"
+      className=" text-black p-2 h-[40px] w-full my-7"
     />
   );
 };

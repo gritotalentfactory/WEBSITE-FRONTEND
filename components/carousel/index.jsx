@@ -7,8 +7,12 @@ import ArrowRight from "@/asets/arrowRight.svg";
 import styles from "./carousel.module.css";
 
 const Carousel = ({ info, title, renderContent }) => {
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
+
+  
+
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;

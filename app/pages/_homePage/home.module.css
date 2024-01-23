@@ -64,7 +64,31 @@
 }
 
 /* CAROUSEL SECTION */
+.carouselForm {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+}
+.carouselForm .inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 10;
+  margin: 15px 0;
+}
+.carouselForm select,
+.carouselForm input {
+  height: 40px;
+}
 
+.carouselForm label {
+  color: #cbb26a;
+}
+.carouselForm input,
+.carouselForm textarea,
+.carouselForm select {
+  width: 80%;
+  border-radius: 12px;
+}
 /* ACADEMY SECTION  */
 .academyWrapper div {
   display: flex;

@@ -42,7 +42,7 @@ const HeroSection = () => {
           <video
             src="https://res.cloudinary.com/digcmbpme/video/upload/v1706000839/Grito/video_1_1_1_ttoqki.mp4"
             controls
-            autoPlay
+            autoPlay={false}
             height={120}
             width={220}
             alt=""
