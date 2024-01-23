@@ -60,11 +60,14 @@ const CarouselSection = () => {
           renderContent={renderContent}
         />
       </div>
-      <div className="flex items-center justify-center mt-16">
+      <div
+        className="flex items-center justify-center mt-16"
+        style={{ marginTop: "120px" }}
+      >
         <Button
           size="md"
           variant="primary"
-          text={"Play Video"}
+          text={"Custom Request"}
           disabled={false}
           fullWidth={false}
         />
