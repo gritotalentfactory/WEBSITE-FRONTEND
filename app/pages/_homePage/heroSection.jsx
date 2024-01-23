@@ -6,7 +6,7 @@ import heroImage from "@/asets/heroImage.png";
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:flex-row justify-between">
+    <section className="flex flex-col md:flex-row justify-between pl-12">
       <div className={`w-[100%] md:w-[42%] pt-1 ${styles.heroText}`}>
         <h2>
           Hire <span>African</span> Tech Talents!

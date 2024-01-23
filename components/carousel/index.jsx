@@ -50,7 +50,7 @@ const Carousel = ({ info, title, renderContent }) => {
   return (
     <div>
       <div>
-        <h1>{title}</h1>
+        <h1 className="text-[#CBB26A] text-center">{title}</h1>
         <div className={styles.caro}>
           <div className={styles.carousel}>
             {info
