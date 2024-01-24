@@ -43,8 +43,8 @@ const HeroSection = ({ scrollToSection }) => {
         </div>
       </div>
 
-      <div className="w-[100%] md:w-[42%] relative ">
-        <div className="h-[200px] w-[250px] border-2 border-[#cbb26a] rounded-[10px] pt-3 absolute left-[-100px]">
+      <div className="w-[100%] md:w-[42%] relative max:sm-mt-6 ">
+        <div className="h-[200px] w-[250px] border-2 border-[#cbb26a] max-sm:hidden rounded-[10px] pt-3 absolute left-[-100px]">
           <div className={`w-[92%] mx-auto ${styles.videoText}`}>
             <p>Hi, I’m Gustavo, founder at GRITO talent factory.....</p>
           </div>
