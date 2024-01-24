@@ -66,6 +66,9 @@
 .mainContainer div {
   padding: 12px 0;
 }
+.CarouselImage {
+  height: 300px;
+}
 
 /* ACADEMY SECTION  */
 .academyWrapper div {
@@ -88,5 +91,8 @@
 @media (max-width: 500px) {
   .academyWrapper div {
     width: 90%;
+  }
+  .CarouselImage {
+    width: 100%;
   }
 }

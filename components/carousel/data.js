@@ -1,24 +1,24 @@
 import Profile from "@/asets/profile.png";
 import flag from "@/asets/kenya.png";
-import Girl1 from "@/asets/girl1.jpeg";
-import Girl2 from "@/asets/girl2.jpeg";
-import Boy from "@/asets/boy2.jpeg";
+import Girl1 from "@/asets/boy5.jpg";
+import Girl2 from "@/asets/girl4.jpg";
+import Boy2 from "@/asets/boy2.jpeg";
 import Boy1 from "@/asets/boy3.jpeg";
 export const Talent = [
   {
     flag: flag,
-    Name: "Felix Adhiambo",
+    Name: "Alexi Kelvin",
     Country: "Nairobi, Kenya",
     skill: "Photoshop, Content Creation, Video Editing, Google Analytics.",
     leve: "Professional",
     gender: "Male",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Profile,
+    profileImage: Girl2,
     profileTitle: "Digital Marketing Specialist",
   },
   {
     flag: flag,
-    Name: "Felix Adhiambo",
+    Name: "Chilaka Chilaka",
     Country: "Nairobi, Kenya",
     skill: "Photoshop, Content Creation, Video Editing, Google Analytics.",
     leve: "Professional",
@@ -40,24 +40,24 @@ export const Talent = [
   },
   {
     flag: flag,
-    Name: "Felix Adhiambo",
+    Name: "Swazzy Somoto",
     Country: "Nairobi, Kenya",
     skill: "Photoshop, Content Creation, Video Editing, Google Analytics.",
     leve: "Professional",
     gender: "woman",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Boy1,
+    profileImage: Boy2,
     profileTitle: "Digital Marketing Specialist",
   },
   {
     flag: flag,
-    Name: "Felix Adhiambo",
+    Name: "Kathryn Filler",
     Country: "Nairobi, Kenya",
     skill: "Photoshop, Content Creation, Video Editing, Google Analytics.",
     leve: "Professional",
     gender: "womany",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Profile,
+    profileImage: Girl1,
     profileTitle: "Digital Marketing Specialist",
   },
   {

@@ -2,15 +2,15 @@
 import React from "react";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styles from "./home.module.css";
 import Button from "@/components/ui/button";
 import heroImage from "@/asets/heroImage.png";
 
 const HeroSection = ({ scrollToSection }) => {
-  const [isVideoPlaying, setVideoPlaying] = useState(false);
+  const router = useRouter();
   const playVideo = () => {
-    console.log("playing");
-    setVideoPlaying(true);
+    router.push("/pages/signUp");
   };
   return (
     <section className="flex flex-col md:flex-row justify-between pl-12">
@@ -27,7 +27,7 @@ const HeroSection = ({ scrollToSection }) => {
           <Button
             size="md"
             variant="primary"
-            text={"Play Video"}
+            text={"Get Started"}
             disabled={false}
             fullWidth={false}
             onClick={playVideo}
@@ -51,7 +51,7 @@ const HeroSection = ({ scrollToSection }) => {
           <video
             src="https://res.cloudinary.com/digcmbpme/video/upload/v1706000839/Grito/video_1_1_1_ttoqki.mp4"
             controls
-            autoPlay={isVideoPlaying}
+            autoPlay={false}
             height={120}
             width={220}
             alt=""

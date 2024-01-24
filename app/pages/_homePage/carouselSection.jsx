@@ -58,6 +58,7 @@ const CarouselSection = () => {
             height={200}
             width={200}
             alt="profile"
+            className={style.CarouselImage}
           />
           <h4 className="text-[#CBB26A] flex justify-end">
             {item.profileTitle}
