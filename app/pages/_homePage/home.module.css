@@ -73,6 +73,7 @@
   gap: 6;
   width: 50%;
 }
+
 .academyContainer {
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
     url(../../../asets/bg.png);
@@ -82,4 +83,10 @@
   color: white;
   padding-bottom: 70px;
   margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+  .academyWrapper div {
+    width: 90%;
+  }
 }

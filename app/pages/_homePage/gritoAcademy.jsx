@@ -11,7 +11,7 @@ const GritoAcademy = React.forwardRef((props, ref) => {
           WHY YOU SHOULD ENROLL AT GRITO ACADEMY?
         </h1>
         <div
-          className={`flex justify-between flex-wrap ${styles.academyWrapper}`}
+          className={`flex max-sm:flex-col justify-between flex-wrap ${styles.academyWrapper}`}
         >
           <div className="flex gap-4 items-center pt-12">
             <Image src={Menu} height={40} width={40} alt="" />

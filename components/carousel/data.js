@@ -1,5 +1,9 @@
 import Profile from "@/asets/profile.png";
 import flag from "@/asets/kenya.png";
+import Girl1 from "@/asets/girl1.jpeg";
+import Girl2 from "@/asets/girl2.jpeg";
+import Boy from "@/asets/boy2.jpeg";
+import Boy1 from "@/asets/boy3.jpeg";
 export const Talent = [
   {
     flag: flag,
@@ -20,7 +24,7 @@ export const Talent = [
     leve: "Professional",
     gender: "Female",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Profile,
+    profileImage: Boy1,
     profileTitle: "Digital Marketing Specialist",
   },
   {
@@ -42,7 +46,7 @@ export const Talent = [
     leve: "Professional",
     gender: "woman",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Profile,
+    profileImage: Boy1,
     profileTitle: "Digital Marketing Specialist",
   },
   {
@@ -64,7 +68,7 @@ export const Talent = [
     leve: "Professional",
     gender: "womany",
     portfolio: "www.felixadhiambo/profile.com",
-    profileImage: Profile,
+    profileImage: Boy1,
     profileTitle: "Digital Marketing Specialist",
   },
   {

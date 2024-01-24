@@ -9,7 +9,7 @@ import Line from "/assets/line.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="px-4 py-8 bg-black w-full text-white">
+      <footer className="px-4 py-8 bg-black w-full text-white max-sm:text-center">
         <div className="container lg:flex sm:block md:flex  justify-between mx-auto gap-x-3 gap-y-5 ">
           <div className=" ">
             <Link href="./">
@@ -33,9 +33,9 @@ const Footer = () => {
               <p className="text-xs">Email: gustavo@grito.africa</p>
             </div>
           </div>
-          <span className=" ">
+          <span className=" max:sm-hidden">
             {" "}
-            <Image src={Line} alt="Line" className="" />
+            <Image src={Line} alt="Line" className="max-sm:hidden " />
           </span>
           <div className="  ">
             <h3 className="text-[#CBB26A] p-6 text-bold ">OFFICE HOUR</h3>
@@ -49,14 +49,14 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <span className="">
+          <span className="max:sm-hidden">
             {" "}
-            <Image src={Line} alt="Line" className="   " />
+            <Image src={Line} alt="Line" className=" max-sm:hidden  " />
           </span>
 
           <div className=" ">
             <div className="mt-4 pt-14">
-              <p className="text-xs w-60 pr-8 leading-7">
+              <p className="text-xs w-60 pr-8 leading-7 max-sm:text-center max-sm:w-full">
                 At GRITO Talent Factory, our motto says, ‘Never Waste Talent’.
                 We take African Tech talents one step closer to their dream tech
                 jobs with top European Companies.
