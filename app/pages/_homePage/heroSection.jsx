@@ -49,9 +49,10 @@ const HeroSection = ({ scrollToSection }) => {
             alt=""
             style={{
               height: "140px",
-              width: "220px",
-              objectFit: "cover",
-              paddingLeft: "20px",
+              width: "100%",
+              objectFit: "fill",
+              paddingLeft: "10px",
+              paddingRight: "10px",
             }}
           />
         </div>
