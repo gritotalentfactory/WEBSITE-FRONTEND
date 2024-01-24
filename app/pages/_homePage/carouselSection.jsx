@@ -55,8 +55,8 @@ const CarouselSection = () => {
         <div>
           <Image
             src={item.profileImage}
-            height={300}
-            width={300}
+            height={200}
+            width={200}
             alt="profile"
           />
           <h4 className="text-[#CBB26A] flex justify-end">
