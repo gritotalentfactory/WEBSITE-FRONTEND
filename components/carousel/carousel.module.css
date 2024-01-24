@@ -8,15 +8,16 @@
   padding-top: 20px;
 }
 .carouselItem {
-  min-width: 60%; /* Update to 100% */
+  min-width: 30%; /* Update to 100% */
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: transform 0.5s ease;
   padding: 0 20px;
   background: #080808;
-  min-height: 400px;
+  min-height: 200px;
   color: white;
   box-shadow: 0px 15px 30px 0px rgba(203, 178, 106, 0.3);
 }
@@ -31,7 +32,7 @@
 .tesBtn {
   position: absolute;
   bottom: -90px;
-  left: 50%;
+  left: 45%;
   display: flex;
   align-items: center;
   gap: 20px;

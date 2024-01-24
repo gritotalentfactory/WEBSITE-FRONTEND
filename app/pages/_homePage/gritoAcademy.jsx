@@ -3,9 +3,9 @@ import Image from "next/image";
 import Menu from "@/asets/menu.svg";
 import styles from "./home.module.css";
 
-const GritoAcademy = () => {
+const GritoAcademy = React.forwardRef((props, ref) => {
   return (
-    <div className={styles.academyContainer}>
+    <div className={styles.academyContainer} ref={ref}>
       <div className="w-[80%] mx-auto">
         <h1 className="text-[#CBB26A] text-center pt-7">
           WHY YOU SHOULD ENROLL AT GRITO ACADEMY?
@@ -45,6 +45,6 @@ const GritoAcademy = () => {
       </div>
     </div>
   );
-};
+});
 
 export default GritoAcademy;

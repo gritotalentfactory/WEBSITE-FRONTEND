@@ -4,7 +4,7 @@ import styles from "./home.module.css";
 import Button from "@/components/ui/button";
 import heroImage from "@/asets/heroImage.png";
 
-const HeroSection = () => {
+const HeroSection = ({ scrollToSection }) => {
   return (
     <section className="flex flex-col md:flex-row justify-between pl-12">
       <div className={`w-[100%] md:w-[42%] pt-1 ${styles.heroText}`}>
@@ -30,6 +30,7 @@ const HeroSection = () => {
             text={"Scroll"}
             disabled={false}
             fullWidth={false}
+            onClick={scrollToSection}
           />
         </div>
       </div>
