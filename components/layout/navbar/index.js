@@ -1,10 +1,17 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 import Image from "next/image";
 import Logo from "/assets/logo.png";
 
 const NavBar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const menuToggle = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <div>
       <nav className="w-full bg-black fixed text-[#CBB26A] z-30">
@@ -36,9 +43,38 @@ const NavBar = () => {
               </a>
             </li>
           </ul>
-          <GiHamburgerMenu className="text-white text-[30px] block md:hidden" />
+          <p
+            className="text-[#C4AC66] text-[30px] block md:hidden cursor-pointer"
+            onClick={menuToggle}
+          >
+            {openMenu ? <AiOutlineClose /> : <GiHamburgerMenu />}
+          </p>
         </div>
       </nav>
+      {openMenu && (
+        <ul
+          className="flex flex-col gap-3 pl-4 bg-black text-white min-h-[70px]"
+          style={{ paddingTop: "100px" }}
+        >
+          <Link href="/pages/signUp">Sign Up</Link>
+          <li>
+            <a
+              className="md:p-4 py-3 px-0 block text-md hover:text-white"
+              href="#"
+            >
+              GRITO Academy
+            </a>
+          </li>
+          <li>
+            <a
+              className="md:p-4 py-3 px-0 block text-md hover:text-white"
+              href="#"
+            >
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
