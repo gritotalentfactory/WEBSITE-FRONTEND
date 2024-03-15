@@ -1,0 +1,17 @@
+// {
+//   "compilerOptions": {
+//
+//   }
+// }
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "out",
+    "next.config.js" // Exclude next.config.js from TypeScript validation
+  ]
+}

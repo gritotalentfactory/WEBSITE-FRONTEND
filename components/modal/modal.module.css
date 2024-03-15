@@ -1,0 +1,40 @@
+/* CAROUSEL SECTION */
+.carouselForm {
+  min-width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+.carouselForm .inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+.carouselForm .countrySelect,
+.carouselForm input {
+  height: 40px;
+}
+
+.carouselForm label {
+  color: #cbb26a;
+}
+.carouselForm input,
+.carouselForm textarea,
+.carouselForm .countrySelect {
+  width: 70%;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 19px;
+}
+@media (max-width: 500px) {
+  .carouselForm .inputContainer {
+    flex-direction: column;
+    align-items: start;
+  }
+  .carouselForm input,
+  .carouselForm textarea,
+  .carouselForm select {
+    width: 100%;
+  }
+}
