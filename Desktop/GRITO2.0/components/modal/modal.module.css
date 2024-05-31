@@ -1,0 +1,27 @@
+/* CAROUSEL SECTION */
+.carouselForm {
+  min-width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+.carouselForm .inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 10;
+  margin: 15px 0;
+}
+.carouselForm select,
+.carouselForm input {
+  height: 40px;
+}
+
+.carouselForm label {
+  color: #cbb26a;
+}
+.carouselForm input,
+.carouselForm textarea,
+.carouselForm select {
+  width: 70%;
+  border-radius: 12px;
+}
