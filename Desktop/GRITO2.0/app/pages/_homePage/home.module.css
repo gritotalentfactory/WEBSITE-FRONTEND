@@ -1,0 +1,98 @@
+.heroText h2 {
+  color: #cbb26a;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #cbb26a;
+  font-family: "Josefin Sans";
+  font-size: 68px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.72px;
+}
+.heroText h2 span {
+  color: #080808;
+  font-family: "Josefin Sans";
+  font-size: 68px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.72px;
+  -webkit-text-stroke: 1px #cbb26a; /* For webkit browsers (Chrome, Safari) */
+  text-stroke: 1px #cbb26a;
+}
+.textOne {
+  background: linear-gradient(
+    91deg,
+    #cbb26a 9.71%,
+    #fff 34.55%,
+    rgba(209, 188, 156, 0.51) 59.39%,
+    #a57c3e 84.22%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 30px;
+}
+.textTwo {
+  background: linear-gradient(
+    91deg,
+    #cbb26a -8.85%,
+    #fff 30.94%,
+    #fff 70.74%,
+    #a57c3e 110.54%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 6px;
+}
+
+.textThree {
+  background: linear-gradient(91deg, #fff -0.64%, #a57c3e 49.56%, #cbb26a 103%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 6pxpx;
+}
+.videoText {
+  color: #fff;
+  font-family: "Josefin Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+/* CAROUSEL */
+.mainContainer div {
+  padding: 12px 0;
+}
+.CarouselImage {
+  height: 300px;
+}
+
+/* ACADEMY SECTION  */
+.academyWrapper div {
+  display: flex;
+  gap: 6;
+  width: 50%;
+}
+
+.academyContainer {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../../../asets/bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding-bottom: 70px;
+  margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+  .academyWrapper div {
+    width: 90%;
+  }
+  .CarouselImage {
+    width: 100%;
+  }
+}
