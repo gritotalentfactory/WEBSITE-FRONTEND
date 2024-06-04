@@ -26,6 +26,10 @@
         "permanent": true
       }
     ],
-    "buildCommand": "npm install --force && npm run build"
+    "build": {
+      "env": {
+        "NODE_OPTIONS": "--legacy-peer-deps"
+      }
+    }
   }
   
