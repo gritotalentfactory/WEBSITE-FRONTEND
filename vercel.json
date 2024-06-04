@@ -25,11 +25,6 @@
         "destination": "/new-route",
         "permanent": true
       }
-    ],
-    "build": {
-      "env": {
-        "NODE_OPTIONS": "--legacy-peer-deps"
-      }
-    }
+    ]
   }
   
