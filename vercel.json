@@ -25,6 +25,7 @@
         "destination": "/new-route",
         "permanent": true
       }
-    ]
+    ],
+    "buildCommand": "npm install --legacy-peer-deps && npm run build"
   }
   
