@@ -1,25 +1,28 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "next.config.js",
-        "use": "@vercel/next"
+  "version": 2,
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/next",
+      "config": {
+        "NODE_OPTIONS": "--legacy-peer-deps"
       }
-    ],
-    "env": {
-      "NEXT_PUBLIC_API_URL": "https://website-backend-o4c1vwcl6-grito-talent-agency.vercel.app"
-    },
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "https://website-backend-o4c1vwcl6-grito-talent-agency.vercel.app/:path*"
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/old-route",
-        "destination": "/new-route",
-        "permanent": true
-      }
-    ]
-  }
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://website-backend-o4c1vwcl6-grito-talent-agency.vercel.app"
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://website-backend-o4c1vwcl6-grito-talent-agency.vercel.app/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/old-route",
+      "destination": "/new-route",
+      "permanent": true
+    }
+  ]
+}
