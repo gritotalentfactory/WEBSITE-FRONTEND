@@ -3,10 +3,7 @@
     "builds": [
       {
         "src": "next.config.js",
-        "use": "@vercel/next",
-        "config": {
-          "NODE_OPTIONS": "--legacy-peer-deps"
-        }
+        "use": "@vercel/next"
       }
     ],
     "env": {
@@ -24,6 +21,9 @@
         "destination": "/new-route",
         "permanent": true
       }
-    ]
+    ],
+    "build": {
+      "command": "npm install --legacy-peer-deps && npm run build"
+    }
   }
   
