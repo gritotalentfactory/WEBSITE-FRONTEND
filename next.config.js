@@ -5,8 +5,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'website-backend-f3rimfzy3-grito-talent-agency.vercel.app',
-        pathname: '/uploads/**',
+        hostname: 'res.cloudinary.com',
       },
     ],
   },

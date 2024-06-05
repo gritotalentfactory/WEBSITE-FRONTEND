@@ -31,17 +31,15 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
       country: data.country.label, // Extract the label from the selected country object
       countryCode: data.country.value, // Extract the value from the selected country object
     };
-    // Prepare form data
+
     const formData = new FormData();
-    // formData.append("countryCode", countryCode);
     Object.keys(formattedData).forEach((key) => {
-      formData.append(key, formattedData[key]);
+      if (key === 'image' && formattedData[key]) {
+        formData.append(key, formattedData[key][0]);
+      } else {
+        formData.append(key, formattedData[key]);
+      }
     });
-
-    if (data.image && data.image[0]) {
-      formData.append('image', data.image[0]); // Append image file
-    }
-
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/talents`, {
@@ -84,8 +82,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                     rules={{ required: "Name is required" }}
                     render={({ field }) => <input {...field} />}
                   />
-                </div>
                   {errors.name && <span className="text-red-600">{errors.name.message}</span>}
+                </div>
                 <div className={style.inputContainer}>
                   <label htmlFor="country">Country:</label>
                   <Controller
@@ -94,8 +92,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                     rules={{ required: "Country is required" }}
                     render={({ field }) => <CountrySelector {...field} />}
                   />
-                </div>
                   {errors.country && <span className="text-red-600">{errors.country.message}</span>}
+                </div>
                 <div className={style.inputContainer}>
                   <label htmlFor="skillSet">Skill Set:</label>
                   <Controller
@@ -106,8 +104,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                       <textarea {...field} cols="30" rows="5"></textarea>
                     )}
                   />
-                </div>
                   {errors.skillSet && <span className="text-red-600">{errors.skillSet.message}</span>}
+                </div>
                 <div className={`${style.inputContainer} text-black mx-3`}>
                   <label htmlFor="level">Level:</label>
                   <Controller
@@ -137,8 +135,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                       </>
                     )}
                   />
-                </div>
                   {errors.level && <span className="text-red-600">{errors.level.message}</span>}
+                </div>
                 <div className={`${style.inputContainer} text-black mx-3`}>
                   <label htmlFor="gender">Gender:</label>
                   <Controller
@@ -162,8 +160,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                       </>
                     )}
                   />
-                </div>
                   {errors.gender && <span className="text-red-600">{errors.gender.message}</span>}
+                </div>
                 <div className={style.inputContainer}>
                   <label htmlFor="portfolio">Portfolio:</label>
                   <Controller
@@ -172,9 +170,9 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                     rules={{ required: "Portfolio is required" }}
                     render={({ field }) => <input {...field} />}
                   />
+                  {errors.portfolio && <span className="text-red-600">{errors.portfolio.message}</span>}
                 </div>
-                  {errors.name && <span className="text-red-600">{errors.portfolio.message}</span>}
-                  <div className={style.inputContainer}>
+                <div className={style.inputContainer}>
                   <label htmlFor="image">Image:</label>
                   <Controller
                     name="image"
@@ -187,8 +185,8 @@ const CreateTalentModal = ({ isOpen, closeCreateModal, handleCreate }) => {
                       />
                     )}
                   />
-                </div>
                   {errors.image && <span className="text-red-600">{errors.image.message}</span>}
+                </div>
               </section>
               <Button
                 size="md"

@@ -27,7 +27,7 @@ const EditModal = ({ isEditOpen, closeEditModal, talentData, onSave }) => {
       country: { label: talentData.country, value: talentData.countryCode },
     });
     if (talentData.image) {
-      setImagePreview(`${process.env.NEXT_PUBLIC_API_URL}${talentData.image}`);
+      setImagePreview(talentData.image);
       setValue('image', talentData.image); // Set the initial image value
     }
   }, [talentData, reset, setValue]);

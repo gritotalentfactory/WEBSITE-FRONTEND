@@ -66,7 +66,7 @@ const CarouselSection = () => {
         </div>
         <div>
           <Image 
-            src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`} 
+            src= {item.image}
             height={200}
             width={200}
             alt="profile"

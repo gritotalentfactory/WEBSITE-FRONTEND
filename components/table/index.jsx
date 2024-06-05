@@ -242,7 +242,7 @@ export function Table({ data, setData }) {
                 <span>Portfolio: </span>
                 {tableData.portfolio}
               </Link>
-              <img src={`${process.env.NEXT_PUBLIC_API_URL}${tableData.image}`} alt="profile image" />
+              <img src={tableData.image} alt="profile image" />
               {/* <p>
                 <span>Profile Title: </span>
                 {tableData.profileTitle}
