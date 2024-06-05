@@ -21,8 +21,10 @@ const CarouselSection = () => {
   };
   useEffect(() => {
     const fetchTalents = async () => {
-      try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/talents`);
+      try { 
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/talents`, {
+      withCredentials: true // Ensure credentials are included if needed
+    });
         setTalents(response.data);
       } catch (error) {
         console.error("Error fetching talents:", error);
@@ -64,7 +66,7 @@ const CarouselSection = () => {
         </div>
         <div>
           <Image 
-            src={`${process.env.NEXT_PUBLIC_API_URLitem.image}`} 
+            src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`} 
             height={200}
             width={200}
             alt="profile"

@@ -54,7 +54,7 @@ const SideBar = () => {
       <ul className={styles.item}>
         {navList.map((menu, idx) => (
           <div
-            key={menu.href}
+            key={menu.link}
             onClick={() => handleMenuItemClick(idx)}
             className={`cursor-pointer ${
               idx === activeIdx ? "text-[#cbb26a]" : ""
