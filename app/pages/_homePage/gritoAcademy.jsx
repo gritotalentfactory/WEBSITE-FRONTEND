@@ -47,4 +47,7 @@ const GritoAcademy = React.forwardRef((props, ref) => {
   );
 });
 
+// Add display name to the component
+GritoAcademy.displayName = 'GritoAcademy';
+
 export default GritoAcademy;

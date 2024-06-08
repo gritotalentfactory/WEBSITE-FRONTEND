@@ -1,3 +1,10 @@
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import CountrySelector from "../ui/input/countryInput";
+import RadioInput from "../ui/input/radioInput";
+import Button from "../ui/button";
+import style from "./modal.module.css";
+
 const FormModal = ({ closeModal }) => {
   const {
     control,
