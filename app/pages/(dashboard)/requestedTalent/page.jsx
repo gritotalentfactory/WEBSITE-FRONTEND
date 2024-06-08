@@ -141,7 +141,6 @@ const ClientDashBoard = () => {
         <h1 className="text-center pt-5">VIEW REQUESTED TALENTS DETAILS</h1>
         <ClientTable data={talentDetails} />
       </div>
-      {isCreateOpen && <AdminFormModal closeModal={closeCreateModal} />}
     </div>
   );
 };

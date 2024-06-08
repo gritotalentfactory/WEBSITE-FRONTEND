@@ -1,6 +1,4 @@
-"use client";
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import HeroSection from "./pages/_homePage/heroSection";
 import CarouselSection from "./pages/_homePage/carouselSection";
@@ -8,7 +6,7 @@ import GritoAcademy from "./pages/_homePage/gritoAcademy";
 import NavBar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
-const page = () => {
+const Page = () => {
   const sectionRef = useRef(null);
   const scrollToSection = () => {
     if (sectionRef.current) {
@@ -34,4 +32,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
