@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@vercel/next",
-      "config": {
-         "NODE_OPTIONS": "--legacy-peer-deps"
-      }
-    }
-  ],
   "env": {
     "NEXT_PUBLIC_API_URL": "https://website-backend-7if44s0v4-grito-talent-agency.vercel.app"
   },
