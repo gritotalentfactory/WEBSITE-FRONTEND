@@ -1,10 +1,3 @@
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import CountrySelector from "../ui/input/countryInput";
-import RadioInput from "../ui/input/radioInput";
-import Button from "../ui/button";
-import style from "./modal.module.css";
-
 const FormModal = ({ closeModal }) => {
   const {
     control,
@@ -75,7 +68,7 @@ const FormModal = ({ closeModal }) => {
                 {errors.clientName && <span className="text-red-600">{errors.clientName.message}</span>}
 
               <div className={style.inputContainer}>
-                <label htmlFor="clientEmail">Client's Email</label>
+                <label htmlFor="clientEmail">Client&apos;s Email</label>
                 <Controller
                   name="clientEmail"
                   control={control}
@@ -86,7 +79,7 @@ const FormModal = ({ closeModal }) => {
                 {errors.clientEmail && <span className="text-red-600">{errors.clientEmail.message}</span>}
 
               <div className={style.inputContainer}>
-                <label htmlFor="clientWnum">Client's Whatsapp Number</label>
+                <label htmlFor="clientWnum">Client&apos;s Whatsapp Number</label>
                 <Controller
                   name="clientWnum"
                   control={control}
@@ -189,5 +182,3 @@ const FormModal = ({ closeModal }) => {
     </div>
   );
 };
-
-export default FormModal;
