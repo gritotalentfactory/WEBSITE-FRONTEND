@@ -8,9 +8,11 @@ import Button from "@/components/ui/button";
 import heroImage from "@/asets/heroImage.png";
 
 const HeroSection = ({ scrollToSection }) => {
-  const router = useRouter();
-  const playVideo = () => {
-    router.push("/pages/signUp");
+  const scrollToCarousel = () => {
+    const carouselSection = document.getElementById("hire-talent-section");
+    if (carouselSection) {
+      carouselSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <section className="flex flex-col md:flex-row justify-between pl-12">
@@ -30,12 +32,12 @@ const HeroSection = ({ scrollToSection }) => {
             text={"Hire Talent"}
             disabled={false}
             fullWidth={false}
-            onClick={playVideo}
+            onClick={scrollToCarousel}
           />
           <Button
             size="md"
             variant="outline"
-            text={"Scroll"}
+            text={"Contact Us"}
             disabled={false}
             fullWidth={false}
             onClick={scrollToSection}
@@ -44,7 +46,7 @@ const HeroSection = ({ scrollToSection }) => {
       </div>
 
       <div className="w-[100%] md:w-[42%] relative max:sm-mt-6 ">
-        <div className="min-h-[220px]  w-[250px] border-2 border-[#cbb26a] rounded-[10px] pt-3 absolute max-sm:relative max-sm:z-20 left-[-100px] max-sm:top-[30px] max-sm:left-[10px]">
+        <div className="min-h-[220px]  w-[250px] border-2 border-[#cbb26a] rounded-[10px] pt-3 absolute max-sm:relative max-sm:z-10 left-[-100px] max-sm:top-[30px] max-sm:left-[10px]">
           <div className={`w-[92%] mx-auto ${styles.videoText}`}>
             <p>Hi, I’m Gustavo, co-founder at GRITO talent agency.....</p>
           </div>

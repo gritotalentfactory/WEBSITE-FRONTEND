@@ -23,7 +23,7 @@ const NavBar = () => {
               className="lg:inline-flex items-center p-2 mr-4"
             />
           </Link>
-          <ul className="hidden md:flex items-center justify-between pt-4 md:pt-0">
+          <ul className="hidden  md:flex items-center justify-between pt-4 md:pt-0">
             <li>
               <a
                 className="md:p-4 py-3 px-0 block text-md hover:text-white"
@@ -59,8 +59,8 @@ const NavBar = () => {
       </nav>
       {openMenu && (
         <ul
-          className="flex flex-col gap-3 pl-4 bg-black text-white min-h-[70px]"
-          style={{ paddingTop: "100px" }}
+          className="flex flex-col gap-3 fixed pl-4 bg-black text-white min-h-[70px] w-[100%] "
+          style={{ paddingTop: "100px", zIndex: "20"}}
         >
           <li>
             <a

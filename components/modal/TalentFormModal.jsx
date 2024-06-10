@@ -52,9 +52,9 @@ const FormModal = ({ closeModal }) => {
   };
 
   return (
-    <div style={{ zIndex: "1000" }}>
+    <div style={{ zIndex: "10" }}>
       <div className="absolute h-screen w-screen bottom-0 flex items-center justify-center">
-        <div className="bg-black min-h-[600px] min-w-[600px] mx-auto">
+        <div className="bg-black min-h-[700px] min-w-[0px] mx-auto">
           <h1
             className="text-red-600 flex justify-end cursor-pointer pr-4"
             onClick={closeModal}
@@ -62,9 +62,9 @@ const FormModal = ({ closeModal }) => {
             X
           </h1>
           <form onSubmit={handleSubmit(onSubmit)} className={style.carouselForm}>
-            <section className="mb-2 w-[100%]">
+            <section className="mb-2 w-[90%]">
               <div className={style.inputContainer}>
-                <label htmlFor="clientName">Name of Client:</label>
+                <label htmlFor="clientName">Name of Client </label>&nbsp;&nbsp; 
                 <Controller
                   name="clientName"
                   control={control}
@@ -75,7 +75,7 @@ const FormModal = ({ closeModal }) => {
                 {errors.clientName && <span className="text-red-600">{errors.clientName.message}</span>}
 
               <div className={style.inputContainer}>
-                <label htmlFor="clientEmail">Client&apos;s Email</label>
+                <label htmlFor="clientEmail">Client&apos;s Email </label>&nbsp;&nbsp;
                 <Controller
                   name="clientEmail"
                   control={control}
@@ -86,7 +86,7 @@ const FormModal = ({ closeModal }) => {
                 {errors.clientEmail && <span className="text-red-600">{errors.clientEmail.message}</span>}
 
               <div className={style.inputContainer}>
-                <label htmlFor="clientWnum">Client&apos;s Whatsapp Number</label>
+                <label htmlFor="clientWnum">Client&apos;s Whatsapp Number </label>
                 <Controller
                   name="clientWnum"
                   control={control}
@@ -97,7 +97,7 @@ const FormModal = ({ closeModal }) => {
                 {errors.clientWnum && <span className="text-red-600">{errors.clientWnum.message}</span>}
 
               <div className={style.inputContainer}>
-                <label htmlFor="country">Country:</label>
+                <label htmlFor="country">Country </label>
                 <Controller
                   name="country"
                   control={control}
@@ -107,7 +107,7 @@ const FormModal = ({ closeModal }) => {
               </div>
                 {errors.country && <span className="text-red-600">{errors.country.message}</span>}
               <div className={style.inputContainer}>
-                <label htmlFor="skillSet">Skill Set:</label>
+                <label htmlFor="skillSet">Skill Set </label> &nbsp;&nbsp;
                 <Controller
                   name="skillSet"
                   control={control}
@@ -118,8 +118,8 @@ const FormModal = ({ closeModal }) => {
                 />
               </div>
                 {errors.skillSet && <span className="text-red-600">{errors.skillSet.message}</span>}
-              <div className={`${style.inputContainer} text-black mx-3`}>
-                <label htmlFor="level">Level</label>
+              <div className={`${style.inputContainer} text-black mx-3`} >
+                <label htmlFor="level" >Level </label>
                 <Controller
                   name="level"
                   control={control}
@@ -150,7 +150,7 @@ const FormModal = ({ closeModal }) => {
               </div>
                 {errors.level && <span className="text-red-600">{errors.level.message}</span>}
               <div className={`${style.inputContainer} text-black mx-3`}>
-                <label htmlFor="gender">Gender:</label>
+                <label htmlFor="gender">Gender </label>
                 <Controller
                   name="gender"
                   control={control}
