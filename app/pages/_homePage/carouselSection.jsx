@@ -7,7 +7,7 @@ import Carousel from "@/components/carousel";
 import style from "./home.module.css";
 import Button from "@/components/ui/button";
 // import FormModal from "@/components/modal/FormModal";
-import FormModal from "/components/modal/FormModal";
+import FormModal from "/components/modal/TalentFormModal";
 import Flag from "react-world-flags"; 
 
 const CarouselSection = () => {
