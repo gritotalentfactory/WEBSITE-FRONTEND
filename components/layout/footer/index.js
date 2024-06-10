@@ -84,7 +84,7 @@ const Footer = () => {
         </div>
         <div className="flex items-center justify-center px-6 pt-12 text-sm">
           <span className="text-white">
-            © ALL RIGHTS RESERVED 2023 | GRITO TALENT FACTORY.
+            © ALL RIGHTS RESERVED 2024 | GRITO TALENT AGENCY.
           </span>
         </div>
       </footer>
