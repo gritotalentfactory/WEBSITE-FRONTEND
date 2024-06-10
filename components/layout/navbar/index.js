@@ -24,12 +24,18 @@ const NavBar = () => {
             />
           </Link>
           <ul className="hidden md:flex items-center justify-between pt-4 md:pt-0">
-            <Link href="/pages/signUp">Sign Up</Link>
-
             <li>
               <a
                 className="md:p-4 py-3 px-0 block text-md hover:text-white"
-                href="#"
+                href="#hire-talent-section"
+              >
+                Hire Talent
+              </a>
+            </li>
+            <li>
+              <a
+                className="md:p-4 py-3 px-0 block text-md hover:text-white"
+                href="#academy"
               >
                 GRITO Academy
               </a>
@@ -37,7 +43,7 @@ const NavBar = () => {
             <li>
               <a
                 className="md:p-4 py-3 px-0 block text-md hover:text-white"
-                href="#"
+                href="#contactFooter"
               >
                 Contact Us
               </a>
@@ -56,11 +62,18 @@ const NavBar = () => {
           className="flex flex-col gap-3 pl-4 bg-black text-white min-h-[70px]"
           style={{ paddingTop: "100px" }}
         >
-          <Link href="/pages/signUp">Sign Up</Link>
           <li>
             <a
               className="md:p-4 py-3 px-0 block text-md hover:text-white"
-              href="#"
+              href="#hire-talent-section"
+            >
+              Hire Talent
+            </a>
+          </li>
+          <li>
+            <a
+              className="md:p-4 py-3 px-0 block text-md hover:text-white"
+              href="#academy"
             >
               GRITO Academy
             </a>
@@ -68,7 +81,7 @@ const NavBar = () => {
           <li>
             <a
               className="md:p-4 py-3 px-0 block text-md hover:text-white"
-              href="#"
+              href="#contactFooter"
             >
               Contact Us
             </a>

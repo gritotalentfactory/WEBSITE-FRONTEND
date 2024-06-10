@@ -27,7 +27,7 @@ const FormModal = ({ closeModal }) => {
       ...data,
       country: data.country.label,  // Extract the value from the selected country object
     };
-    console.log("Form data:", formattedData);
+    // console.log("Form data:", formattedData);
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/talent-request`, {
@@ -189,3 +189,5 @@ const FormModal = ({ closeModal }) => {
     </div>
   );
 };
+
+export default FormModal;

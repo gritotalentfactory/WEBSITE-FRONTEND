@@ -9,7 +9,7 @@ import Line from "/assets/line.png";
 const Footer = () => {
   return (
     <div>
-      <footer className="px-4 py-8 bg-black w-full text-white max-sm:text-center">
+      <footer className="px-4 py-8 bg-black w-full text-white max-sm:text-center" id="contactFooter">
         <div className="container lg:flex sm:block md:flex  justify-between mx-auto gap-x-3 gap-y-5 ">
           <div className=" ">
             <Link href="./">

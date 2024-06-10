@@ -6,7 +6,7 @@ import axios from "axios";
 import Carousel from "@/components/carousel";
 import style from "./home.module.css";
 import Button from "@/components/ui/button";
-import FormModal from "@/components/modal/formModal";
+import FormModal from "@/components/modal/FormModal";
 import Flag from "react-world-flags"; 
 
 const CarouselSection = () => {
@@ -23,7 +23,7 @@ const CarouselSection = () => {
     const fetchTalents = async () => {
       try { 
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/talents`, {
-      withCredentials: true // Ensure credentials are included if needed
+        withCredentials: true 
     });
         setTalents(response.data);
       } catch (error) {
@@ -35,7 +35,7 @@ const CarouselSection = () => {
   }, []);
 
   const renderContent = (item) => (
-    <section className={style.carouselContainer}>
+    <section className={style.carouselContainer} id="hire-talent-section">
       <Flag code={item.countryCode} height={60} width={60} alt="flag" />
       <main className={`flex flex-col md:flex-row gap-5 ${style.mainContainer}`}>
         <div>
@@ -89,14 +89,13 @@ const CarouselSection = () => {
           <Button
             size="md"
             variant="primary"
-            text={"Custom Request"}
+            text={"Talent Request"}
             disabled={false}
             fullWidth={false}
             onClick={openModal}
           />
         </div>
       </div>
-
       {isOpen && <FormModal openModal={openModal} closeModal={closeModal} />}
     </div>
   );
