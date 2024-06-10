@@ -44,9 +44,9 @@ const HeroSection = ({ scrollToSection }) => {
       </div>
 
       <div className="w-[100%] md:w-[42%] relative max:sm-mt-6 ">
-        <div className="h-[200px] w-[250px] border-2 border-[#cbb26a] max-sm:hidden rounded-[10px] pt-3 absolute left-[-100px]">
+        <div className="min-h-[220px]  w-[250px] border-2 border-[#cbb26a] rounded-[10px] pt-3 absolute max-sm:relative max-sm:z-20 left-[-100px] max-sm:top-[30px] max-sm:left-[10px]">
           <div className={`w-[92%] mx-auto ${styles.videoText}`}>
-            <p>Hi, I’m Gustavo, founder at GRITO talent factory.....</p>
+            <p>Hi, I’m Gustavo, co-founder at GRITO talent agency.....</p>
           </div>
           <iframe
             width="560"
@@ -64,7 +64,13 @@ const HeroSection = ({ scrollToSection }) => {
             }}
           ></iframe>
         </div>
-        <Image src={heroImage} height={100} width={300} alt="heroImage" />
+        <Image
+          src={heroImage}
+          height={100}
+          width={300}
+          alt="heroImage"
+          className={`max-sm:filter max-sm:blur-sm max-sm:brightness-45 max-sm:absolute max-sm:top-10 ${styles.vidFooter}`}
+        />
       </div>
     </section>
   );
