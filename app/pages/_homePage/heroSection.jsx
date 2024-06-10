@@ -14,6 +14,13 @@ const HeroSection = ({ scrollToSection }) => {
       carouselSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const scrollToContactFooter = () => {
+    const contactFooter = document.getElementById("contactFooter");
+      if (contactFooter) {
+        contactFooter.scrollIntoView({ behavior: "smooth" });
+      }
+  };
+
   return (
     <section className="flex flex-col md:flex-row justify-between pl-12">
       <div className={`w-[100%] md:w-[42%] pt-1 ${styles.heroText}`}>
@@ -40,7 +47,7 @@ const HeroSection = ({ scrollToSection }) => {
             text={"Contact Us"}
             disabled={false}
             fullWidth={false}
-            onClick={scrollToSection}
+            onClick={scrollToContactFooter}
           />
         </div>
       </div>
