@@ -27,7 +27,7 @@ const HeroSection = ({ scrollToSection }) => {
           <Button
             size="md"
             variant="primary"
-            text={"Get Started"}
+            text={"Hire Talent"}
             disabled={false}
             fullWidth={false}
             onClick={playVideo}
@@ -48,21 +48,21 @@ const HeroSection = ({ scrollToSection }) => {
           <div className={`w-[92%] mx-auto ${styles.videoText}`}>
             <p>Hi, I’m Gustavo, founder at GRITO talent factory.....</p>
           </div>
-          <video
-            src="https://res.cloudinary.com/digcmbpme/video/upload/v1706000839/Grito/video_1_1_1_ttoqki.mp4"
-            controls
-            autoPlay={false}
-            height={120}
-            width={220}
-            alt=""
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/A8AdS92qmhg"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
             style={{
               height: "140px",
               width: "100%",
-              objectFit: "fill",
+              objectFit: "cover",
               paddingLeft: "10px",
               paddingRight: "10px",
             }}
-          />
+          ></iframe>
         </div>
         <Image src={heroImage} height={100} width={300} alt="heroImage" />
       </div>
