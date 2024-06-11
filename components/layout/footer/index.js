@@ -29,7 +29,8 @@ const Footer = () => {
               <p className="text-xs">Email: emeka@grito.africa</p>
             </div>
             <div className="mt-4">
-              <p className="text-xs">Europe: +346 310 385 88</p>
+              <p className="text-xs">USA (whatsapp): +346 310 385 88</p>
+              <p className="text-xs">Europe (call): +5492645069142</p>
               <p className="text-xs">Email: gustavo@grito.africa</p>
             </div>
           </div>
@@ -40,13 +41,8 @@ const Footer = () => {
           <div className="  ">
             <h3 className="text-[#CBB26A] p-6 text-bold ">OFFICE HOUR</h3>
             <div className="mt-4 ">
-              <p className="text-xs">9am - 4pm (Mon - Sat, WAT) </p>
-              <button
-                type="button"
-                className="text-[#CBB26A] hover:text-white cursor-pointer rounded-full lg:px-4 py-1  md:px-1 sm:px-1 border border-[#CBB26A] mt-14"
-              >
-                Chat With Us
-              </button>
+              <p className="text-xs mb-14">9am - 4pm (Mon - Sat, WAT) </p>
+              <a class="text-[#CBB26A] hover:text-white cursor-pointer rounded-full px-10 py-5  border border-[#CBB26A] " href="https://wa.me/message/TNLOASZ7HVDVP1">Chat With Us</a>
             </div>
           </div>
           <span className="max:sm-hidden">
@@ -57,9 +53,9 @@ const Footer = () => {
           <div className=" ">
             <div className="mt-4 pt-14">
               <p className="text-xs w-60 pr-8 leading-7 max-sm:text-center max-sm:w-full">
-                At GRITO Talent Factory, our motto says, ‘Never Waste Talent’.
-                We take African Tech talents one step closer to their dream tech
-                jobs with top European Companies.
+                At GRITO Talent Agency, our motto says: ‘Never Waste Talent’, 
+                because we bring International Tech Jobs closer to the 
+                Top 1% African Tech Talents.
               </p>
 
               <div className="flex ml-32 mt-16 ">
@@ -67,7 +63,7 @@ const Footer = () => {
                   <Image
                     src={Youtube}
                     alt="Youtube icon"
-                    className=" items-center p-2 w-8 "
+                    className=" items-center p-2 w-20 "
                   />
                 </Link>
 
@@ -75,7 +71,7 @@ const Footer = () => {
                   <Image
                     src={Linkedin}
                     alt="Linkedin icon"
-                    className="items-center p-2 w-8 "
+                    className="items-center p-2 w-20 "
                   />
                 </Link>
               </div>

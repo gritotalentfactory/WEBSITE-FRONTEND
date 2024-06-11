@@ -12,10 +12,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import MyModal from "../modal";
-// import EditFormModal from "../modal/editformModal";
-import Select from "react-select";
 import { toast } from "react-toastify";
+import Select from "react-select";
 import "react-toastify/dist/ReactToastify.css";
 
 const columnHelper = createColumnHelper();
@@ -56,11 +54,8 @@ const columns = [
 ];
 
 export function ClientTable({ data }) {
-  const [isOpen, setIsOpen] = useState(false);
   const [tableData, setTableData] = useState(data);
   const [sorting, setSorting] = useState([]);
-  // const [isEditModal, setEditModal] = useState(false);
-  // const [singleData, setSingleData] = useState(null);
 
   useEffect(() => {
     if (data) {
@@ -70,28 +65,24 @@ export function ClientTable({ data }) {
 
   const deleteItem = async (data) => {
     try {
-      // Implement delete functionality
+      const response = await axios.delete(`https://website-backend-ot9lnm91k-grito-talent-agency.vercel.app/admin/talent-request/${data.id}`);
+      if (response.status === 200) {
+        toast.success("Talent request deleted successfully.");
+        setTableData((prevData) => prevData.filter((item) => item.id !== data.id));
+      }
     } catch (error) {
-      toast.error("Failed to delete talent.");
+      toast.error("Failed to delete talent request.");
     }
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  const options = [
+    { value: "delete", label: "Delete" },
+  ];
 
-  const closeEditModal = () => {
-    setEditModal(false);
-  };
-
-  const openEditModal = (data) => {
-    setSingleData(data);
-    setEditModal(true);
-  };
-
-  const openModal = (data) => {
-    setSingleData(data);
-    setIsOpen(true);
+  const handleSelect = (row, selectedOption) => {
+    if (selectedOption.value === "delete") {
+      deleteItem(row.original);
+    }
   };
 
   const table = useReactTable({
@@ -105,28 +96,6 @@ export function ClientTable({ data }) {
     getPaginationRowModel: getPaginationRowModel(),
     debugTable: true,
   });
-
-  const options = [
-    { value: "viewMore", label: "View More" },
-    { value: "edit", label: "Edit" },
-    { value: "delete", label: "Delete" },
-  ];
-
-  const handleSelect = (row, selectedOption) => {
-    switch (selectedOption.value) {
-      case "viewMore":
-        openModal(row.original);
-        break;
-      case "edit":
-        openEditModal(row.original);
-        break;
-      case "delete":
-        deleteItem(row.original);
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
     <div style={{ margin: "20px", width: "96%" }}>
@@ -211,25 +180,6 @@ export function ClientTable({ data }) {
           ))}
         </tbody>
       </table>
-
-      <MyModal
-        closeModal={closeModal}
-        isOpen={isOpen}
-        title={"View More Information"}
-        content={
-          <section>
-            {/* Content for modal */}
-          </section>
-        }
-      />
-
-      {/* {isEditModal && (
-        <EditFormModal
-          openModal={openEditModal}
-          closeModal={closeEditModal}
-          singleData={singleData}
-        />
-      )} */}
     </div>
   );
 }

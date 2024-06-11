@@ -4,6 +4,7 @@ import CountrySelector from "../ui/input/countryInput";
 import RadioInput from "../ui/input/radioInput";
 import Button from "../ui/button";
 import style from "./modal.module.css";
+import { toast } from "react-toastify";
 
 const FormModal = ({ closeModal }) => {
   const {
@@ -41,13 +42,16 @@ const FormModal = ({ closeModal }) => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submitted successfully:", result);
+        toast.success("Talent request successful.");
         closeModal();
       } else {
         const errorData = await response.json();
         console.error("Error submitting form:", errorData);
+        toast.error("Error submitting form. Please try again.");
       }
     } catch (error) {
       console.error("Network error submitting form:", error);
+      toast.error("Network error submitting form. Please try again.");
     }
   };
 

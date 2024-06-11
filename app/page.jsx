@@ -6,6 +6,7 @@ import CarouselSection from "./pages/_homePage/carouselSection";
 import GritoAcademy from "./pages/_homePage/gritoAcademy";
 import NavBar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import { ToastContainer } from "react-toastify";
 
 const Page = () => {
   const sectionRef = useRef(null);
@@ -25,6 +26,7 @@ const Page = () => {
         style={{ paddingTop: "120px" }}
       >
         <HeroSection scrollToSection={scrollToSection} />
+        <ToastContainer />
         <CarouselSection />
         <GritoAcademy ref={sectionRef} />
       </div>

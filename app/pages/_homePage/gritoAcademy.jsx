@@ -16,29 +16,26 @@ const GritoAcademy = React.forwardRef((props, ref) => {
           <div className="flex gap-4 items-center pt-12">
             <Image src={Menu} height={40} width={40} alt=""/>
             <p>
-              Learn in milestones at your own pace and build your first software
-              product within 60days with Your Expert Tech Guide.
+              Learn in milestones at your own pace and build your first software 
+              product within 60 days with Your Expert Tech Guide.
             </p>
           </div>{" "}
           <div className="flex gap-4 pt-12">
             <Image src={Menu} height={40} width={40} alt=""/>
             <p>
-              Learn in milestones at your own pace and build your first software
-              product within 60days with Your Expert Tech Guide.
+              Learn How To Use AI and Prompt Engineering To Scale Your Existing Products.
             </p>
           </div>{" "}
           <div className="flex gap-4 pt-12">
             <Image src={Menu} height={40} width={40} alt=""/>
             <p>
-              Learn in milestones at your own pace and build your first software
-              product within 60days with Your Expert Tech Guide.
+              Enroll at GRITO Academy on our flexible payment plans and win bonuses on referrals.
             </p>
           </div>{" "}
           <div className="flex gap-4 pt-12">
             <Image src={Menu} height={40} width={40} alt=""/>
             <p>
-              Learn in milestones at your own pace and build your first software
-              product within 60days with Your Expert Tech Guide.
+              Join our Virtual Internship Program (VIP) to prepare for your dream tech job. 
             </p>
           </div>
         </div>
