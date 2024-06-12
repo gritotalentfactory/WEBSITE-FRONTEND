@@ -58,7 +58,7 @@ export function ClientTable({ data }) {
   const [sorting, setSorting] = useState([]);
 
   useEffect(() => {
-    if (data) {
+    if (data) {``
       setTableData(data);
     }
   }, [data]);

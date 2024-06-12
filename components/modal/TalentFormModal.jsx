@@ -26,7 +26,7 @@ const FormModal = ({ closeModal }) => {
   const onSubmit = async (data) => {
     const formattedData = {
       ...data,
-      country: data.country.label,  // Extract the value from the selected country object
+      country: data.countcry.label,  // Extract the value from the selected country object
     };
     // console.log("Form data:", formattedData);
 
@@ -56,9 +56,9 @@ const FormModal = ({ closeModal }) => {
   };
 
   return (
-    <div style={{ zIndex: "10" }}>
+    <div style={{ zIndex: "70" }}>
       <div className="absolute h-screen w-screen bottom-0 flex items-center justify-center">
-        <div className="bg-black min-h-[700px] min-w-[0px] mx-auto">
+        <div className="bg-black min-h-[700px] min-w-[0px] mx-auto py-10 px-5">
           <h1
             className="text-red-600 flex justify-end cursor-pointer pr-4"
             onClick={closeModal}
@@ -122,36 +122,40 @@ const FormModal = ({ closeModal }) => {
                 />
               </div>
                 {errors.skillSet && <span className="text-red-600">{errors.skillSet.message}</span>}
-              <div className={`${style.inputContainer} text-black mx-3`} >
-                <label htmlFor="level" >Level </label>
-                <Controller
-                  name="level"
-                  control={control}
-                  rules={{ required: "Level is required" }}
-                  render={({ field }) => (
-                    <>
-                      <RadioInput
-                        {...field}
-                        text="Beginner"
-                        value="Beginner"
-                        checked={field.value === "Beginner"}
-                      />
-                      <RadioInput
-                        {...field}
-                        text="Intermediate"
-                        value="Intermediate"
-                        checked={field.value === "Intermediate"}
-                      />
-                      <RadioInput
-                        {...field}
-                        text="Professional"
-                        value="Professional"
-                        checked={field.value === "Professional"}
-                      />
-                    </>
-                  )}
-                />
-              </div>
+                <div className={`${style.inputContainer} text-black mx-3 max-sm:my-3`}>
+  <label htmlFor="level">Level</label>
+  <Controller
+    name="level"
+    control={control}
+    rules={{ required: "Level is required" }}
+    render={({ field }) => (
+      <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
+        <RadioInput
+          {...field}
+          text="Beginner"
+          value="Beginner"
+          checked={field.value === "Beginner"}
+          className="w-full max-sm:w-auto"
+        />
+        <RadioInput
+          {...field}
+          text="Intermediate"
+          value="Intermediate"
+          checked={field.value === "Intermediate"}
+          className="w-full max-sm:w-auto"
+        />
+        <RadioInput
+          {...field}
+          text="Professional"
+          value="Professional"
+          checked={field.value === "Professional"}
+          className="w-full max-sm:w-auto"
+        />
+      </div>
+    )}
+  />
+</div>
+
                 {errors.level && <span className="text-red-600">{errors.level.message}</span>}
               <div className={`${style.inputContainer} text-black mx-3`}>
                 <label htmlFor="gender">Gender </label>
