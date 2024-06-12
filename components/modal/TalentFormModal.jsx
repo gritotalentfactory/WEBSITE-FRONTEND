@@ -26,7 +26,7 @@ const FormModal = ({ closeModal }) => {
   const onSubmit = async (data) => {
     const formattedData = {
       ...data,
-      country: data.countcry.label,  // Extract the value from the selected country object
+      country: data.country.label,  // Extract the value from the selected country object
     };
     // console.log("Form data:", formattedData);
 
