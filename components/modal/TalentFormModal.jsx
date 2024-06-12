@@ -135,21 +135,37 @@ const FormModal = ({ closeModal }) => {
           text="Beginner"
           value="Beginner"
           checked={field.value === "Beginner"}
-          className="w-full max-sm:w-auto"
+          className="w-full"
+        />
+      </div>
+    )}
+  />
+  <Controller
+    name="level"
+    control={control}
+    rules={{ required: "Level is required" }}
+    render={({ field }) => (
+      <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
+        <RadioInput
+          {...field}
+          text="Beginner"
+          value="Beginner"
+          checked={field.value === "Beginner"}
+          className="w-full"
         />
         <RadioInput
           {...field}
           text="Intermediate"
           value="Intermediate"
           checked={field.value === "Intermediate"}
-          className="w-full max-sm:w-auto"
+          className="w-full"
         />
         <RadioInput
           {...field}
           text="Professional"
           value="Professional"
           checked={field.value === "Professional"}
-          className="w-full max-sm:w-auto"
+          className="w-full"
         />
       </div>
     )}
