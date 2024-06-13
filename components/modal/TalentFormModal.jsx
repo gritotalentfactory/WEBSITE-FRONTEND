@@ -2,7 +2,6 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import CountrySelector from "../ui/input/countryInput";
-import RadioInput from "../ui/input/radioInput";
 import Button from "../ui/button";
 import style from "./modal.module.css";
 import { toast } from "react-toastify";
@@ -27,7 +26,7 @@ const FormModal = ({ closeModal }) => {
   const onSubmit = async (data) => {
     const formattedData = {
       ...data,
-      country: data.country.label,  // Extract the value from the selected country object
+      country: data.country.label, // Extract the value from the selected country object
     };
     // console.log("Form data:", formattedData);
 
@@ -58,8 +57,8 @@ const FormModal = ({ closeModal }) => {
 
   return (
     <div style={{ zIndex: "70" }}>
-      <div className="absolute h-screen w-screen  bottom-0 max-sm:left-0 max-sm:items-start flex items-center justify-center">
-        <div className="bg-black min-h-[600px] max-w-[600px] max-sm:w-full  mx-auto py-6">
+      <div className="absolute h-screen w-screen bottom-0 max-sm:left-0 max-sm:items-start flex items-center justify-center">
+        <div className="bg-black min-h-[600px] max-w-[600px] max-sm:w-full mx-auto py-6">
           <h1
             className="text-red-600 flex justify-end cursor-pointer pr-4"
             onClick={closeModal}
@@ -123,40 +122,46 @@ const FormModal = ({ closeModal }) => {
                 />
               </div>
                 {errors.skillSet && <span className="text-red-600">{errors.skillSet.message}</span>}
-                <div className={`${style.inputContainer} text-black mx-3 max-sm:my-3`}>
-  <label htmlFor="level">Level</label>
-  <Controller
-    name="level"
-    control={control}
-    rules={{ required: "Level is required" }}
-    render={({ field }) => (
-      <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
-        <RadioInput
-          {...field}
-          text="Beginner"
-          value="Beginner"
-          checked={field.value === "Beginner"}
-          className="w-full"
-        />
-        <RadioInput
-          {...field}
-          text="Intermediate"
-          value="Intermediate"
-          checked={field.value === "Intermediate"}
-          className="w-full"
-        />
-        <RadioInput
-          {...field}
-          text="Professional"
-          value="Professional"
-          checked={field.value === "Professional"}
-          className="w-full"
-        />
-      </div>
-    )}
-  />
-</div>
 
+              <div className={`${style.inputContainer} text-black mx-3 max-sm:my-3`}>
+                <label htmlFor="level">Level</label>
+                <Controller
+                  name="level"
+                  control={control}
+                  rules={{ required: "Level is required" }}
+                  render={({ field }) => (
+                    <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
+                      <label>
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Beginner"
+                          checked={field.value === "Beginner"}
+                        />
+                        Beginner
+                      </label>
+                      <label>
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Intermediate"
+                          checked={field.value === "Intermediate"}
+                        />
+                        Intermediate
+                      </label>
+                      <label>
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Professional"
+                          checked={field.value === "Professional"}
+                        />
+                        Professional
+                      </label>
+                    </div>
+                  )}
+                />
+              </div>
                 {errors.level && <span className="text-red-600">{errors.level.message}</span>}
               <div className={`${style.inputContainer} text-black mx-3`}>
                 <label htmlFor="gender">Gender </label>
@@ -165,20 +170,26 @@ const FormModal = ({ closeModal }) => {
                   control={control}
                   rules={{ required: "Gender is required" }}
                   render={({ field }) => (
-                    <>
-                      <RadioInput
-                        {...field}
-                        text="Female"
-                        value="Female"
-                        checked={field.value === "Female"}
-                      />
-                      <RadioInput
-                        {...field}
-                        text="Male"
-                        value="Male"
-                        checked={field.value === "Male"}
-                      />
-                    </>
+                    <div className="flex gap-2">
+                      <label>
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Female"
+                          checked={field.value === "Female"}
+                        />
+                        Female
+                      </label>
+                      <label>
+                        <input
+                          {...field}
+                          type="radio"
+                          value="Male"
+                          checked={field.value === "Male"}
+                        />
+                        Male
+                      </label>
+                    </div>
                   )}
                 />
               </div>
