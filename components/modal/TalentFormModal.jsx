@@ -131,33 +131,39 @@ const FormModal = ({ closeModal }) => {
                   rules={{ required: "Level is required" }}
                   render={({ field }) => (
                     <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
-                      <label>
+                      <div className="bg-white py-2 px-5 h-[40px] flex items-center gap-3 rounded-md mx-3 text-black">
                         <input
                           {...field}
                           type="radio"
                           value="Beginner"
                           checked={field.value === "Beginner"}
                         />
-                        Beginner
-                      </label>
-                      <label>
+                        <label className="text-black">
+                          Beginner
+                        </label>
+                      </div>
+                      <div className="bg-white py-2 px-5 h-[40px] flex items-center gap-3 rounded-md mx-3 text-black">
                         <input
                           {...field}
                           type="radio"
                           value="Intermediate"
                           checked={field.value === "Intermediate"}
                         />
-                        Intermediate
-                      </label>
-                      <label>
+                        <label className="text-black">
+                          Intermediate
+                        </label>
+                      </div>
+                      <div className="bg-white py-2 px-5 h-[40px] flex items-center gap-3 rounded-md mx-3 text-black">
                         <input
                           {...field}
                           type="radio"
                           value="Professional"
                           checked={field.value === "Professional"}
                         />
-                        Professional
-                      </label>
+                        <label className="text-black">
+                          Professional
+                        </label>
+                      </div>
                     </div>
                   )}
                 />
@@ -171,24 +177,28 @@ const FormModal = ({ closeModal }) => {
                   rules={{ required: "Gender is required" }}
                   render={({ field }) => (
                     <div className="flex gap-2">
-                      <label>
+                      <div className="bg-white py-2 px-5 h-[40px] flex items-center gap-3 rounded-md mx-3 text-black">
                         <input
                           {...field}
                           type="radio"
                           value="Female"
                           checked={field.value === "Female"}
                         />
-                        Female
-                      </label>
-                      <label>
+                        <label className="text-black">
+                          Female
+                        </label>
+                      </div>
+                      <div className="bg-white py-2 px-5 h-[40px] flex items-center gap-3 rounded-md mx-3 text-black">
                         <input
                           {...field}
                           type="radio"
                           value="Male"
                           checked={field.value === "Male"}
                         />
-                        Male
-                      </label>
+                        <label className="text-black">
+                          Male
+                        </label>
+                      </div>
                     </div>
                   )}
                 />
