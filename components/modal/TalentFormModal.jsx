@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import CountrySelector from "../ui/input/countryInput";
@@ -57,8 +58,8 @@ const FormModal = ({ closeModal }) => {
 
   return (
     <div style={{ zIndex: "70" }}>
-      <div className="absolute h-screen w-screen bottom-0 flex items-center justify-center">
-        <div className="bg-black min-h-[700px] min-w-[0px] mx-auto py-10 px-5">
+      <div className="absolute h-screen w-screen  bottom-0 max-sm:left-0 max-sm:items-start flex items-center justify-center">
+        <div className="bg-black min-h-[600px] max-w-[600px] max-sm:w-full  mx-auto py-6">
           <h1
             className="text-red-600 flex justify-end cursor-pointer pr-4"
             onClick={closeModal}
@@ -124,22 +125,6 @@ const FormModal = ({ closeModal }) => {
                 {errors.skillSet && <span className="text-red-600">{errors.skillSet.message}</span>}
                 <div className={`${style.inputContainer} text-black mx-3 max-sm:my-3`}>
   <label htmlFor="level">Level</label>
-  <Controller
-    name="level"
-    control={control}
-    rules={{ required: "Level is required" }}
-    render={({ field }) => (
-      <div className="flex flex-row max-sm:flex-col max-sm:space-x-2 gap-2 max-sm:items-center">
-        <RadioInput
-          {...field}
-          text="Beginner"
-          value="Beginner"
-          checked={field.value === "Beginner"}
-          className="w-full"
-        />
-      </div>
-    )}
-  />
   <Controller
     name="level"
     control={control}
